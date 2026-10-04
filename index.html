@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0f18" />
-  <title>MastitisGuard AI · 3D Animal Wearable Digital Twin (Team SPIRIT - H14_SPIRIT)</title>
+  <title>MastitisGuard AI · Collar + Milk Station Digital Twin (Team H14_Spirit)</title>
   
   <!-- Modern Inter & JetBrains Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -615,7 +615,51 @@
       }
       .hud-footer { display: none; }
     }
-  </style>
+  #labels-container svg{position:absolute;inset:0;width:100%;height:100%}
+.anc{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--node,#00f0aa);border:2px solid #07101a;pointer-events:auto;cursor:pointer;box-shadow:0 0 8px var(--node,#00f0aa)}
+.lab{position:absolute;display:flex;align-items:center;gap:8px;transform:translate(-7px,-50%);pointer-events:auto;cursor:pointer;font:600 12px var(--font-main);color:#e8f1f8;white-space:nowrap}
+.lab i{width:14px;height:14px;border-radius:50%;background:var(--node,#00f0aa);border:2px solid #07101a;box-shadow:0 0 8px var(--node,#00f0aa);flex:none}
+.lab span{background:rgba(13,20,32,.9);border:1px solid var(--bg-panel-border);padding:4px 9px;border-radius:7px}
+.lab b{color:var(--node,#00f0aa);font-family:var(--font-mono);margin-right:6px}
+.lab:hover span,.lab.sel span{border-color:var(--node,#00f0aa)}.lab.sel span{background:rgba(255,255,255,.1)}
+#node-badge{position:absolute;top:78px;left:50%;transform:translateX(-50%);z-index:12;padding:6px 14px;border-radius:20px;background:var(--bg-panel);border:1px solid var(--node,#00f0aa);color:var(--node,#00f0aa);font:700 11px var(--font-mono);letter-spacing:.6px;pointer-events:none}
+.arch-box{border:1px solid var(--bg-panel-border);border-left:3px solid var(--c);border-radius:8px;padding:8px 10px;margin-bottom:8px;cursor:pointer;opacity:.5}
+.arch-box.on{opacity:1;background:rgba(255,255,255,.05)}.arch-box b{color:var(--c)}.arch-box em{color:var(--text-sub)}
+.arch-box .chips span{display:inline-block;font:10px var(--font-mono);padding:1px 6px;margin:3px 3px 0 0;border-radius:5px;background:rgba(255,255,255,.07)}
+.arch-box small{display:block;margin-top:6px;color:var(--text-sub)}.arch-link{color:var(--text-sub);font-size:10px}
+#layers-pills-bar{display:grid!important;grid-template-columns:repeat(3,1fr);gap:7px;overflow:visible!important}
+.layer-pill{display:flex!important;flex-direction:column;align-items:flex-start;gap:1px;padding:7px 8px!important;border:1.5px solid var(--pc)!important;background:transparent!important;border-radius:9px!important;color:#e8f1f8!important;cursor:pointer;white-space:normal!important;text-align:left}
+.layer-pill b{color:var(--pc);font:700 12px var(--font-mono)}.layer-pill span{font-size:10.5px;line-height:1.2}
+.layer-pill.active{background:var(--pc)!important}.layer-pill.active b,.layer-pill.active span{color:#06101a}
+.closed .part-header,.closed .spec-table{display:none}
+.open .part-header,.open .spec-table{animation:pd .28s ease}@keyframes pd{from{opacity:0;transform:translateY(-8px)}}
+.anc{background:var(--pc)!important;box-shadow:0 0 10px var(--pc)!important}.lab i{background:var(--pc)!important;box-shadow:0 0 10px var(--pc)!important}
+.lab b{color:var(--pc)!important}.lab span{border-color:var(--pc)!important;border-width:1.5px}.lab.sel span{background:var(--pc)!important;color:#06101a}.lab.sel b{color:#06101a!important}
+.esp-card{border-color:#fbbf24;box-shadow:0 0 18px rgba(251,191,36,.22)}
+.floating-controls{max-height:calc(100vh - 140px);overflow-y:auto;scrollbar-width:thin}.inspector-panel{max-height:calc(100vh - 150px);overflow-y:auto;scrollbar-width:thin}
+.stg-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}.stg.active{outline:2px solid var(--stage,#00e5a3)}
+.tbar,.sbar{height:4px;border-radius:3px;background:#172738;margin-top:8px;overflow:hidden}.tbar i,.sbar i{display:block;height:100%;width:0;background:var(--stage,#00e5a3);transition:width .4s}
+#sim-card{position:absolute;bottom:54px;left:50%;transform:translateX(-50%);width:370px;z-index:9;background:var(--bg-panel);backdrop-filter:blur(18px);border:1px solid var(--stage,#00e5a3);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow-glass)}
+.sim-top{display:flex;justify-content:space-between;font-size:13px}#sim-tel{font:11px/1.55 var(--font-mono);color:var(--text-main);margin-top:8px}
+#sim-flow{font-size:11px;color:var(--accent-cyan);margin-top:6px}#sim-card small{display:block;margin-top:6px;color:var(--text-sub);font-size:10px}
+
+/* PCB component call-outs (left / right columns) */
+.pco{position:absolute;display:none;pointer-events:auto;cursor:pointer}
+.pco.left{transform:translate(-100%,-50%)}.pco.right{transform:translate(0,-50%)}
+.pco-in{display:flex;align-items:center;gap:6px;padding:3px 8px;width:max-content;max-width:178px;background:rgba(13,20,32,.93);border:1.5px solid var(--pc);border-radius:9px;box-shadow:0 4px 14px rgba(0,0,0,.55);transition:background .15s}
+.pco.left .pco-in{flex-direction:row-reverse;text-align:right}
+.pco-in i{font-style:normal;flex:none;width:18px;height:18px;border-radius:50%;background:var(--pc);color:#06101a;font:800 10px var(--font-mono);display:flex;align-items:center;justify-content:center}
+.pco-in b{display:block;font:700 11px var(--font-main);color:#f1f5f9;line-height:1.25}
+.pco-in em{display:block;font:normal 9.5px var(--font-main);color:var(--text-muted);white-space:nowrap;line-height:1.25}
+.pco:hover .pco-in{background:var(--pc)}.pco:hover .pco-in b,.pco:hover .pco-in em{color:#06101a}
+.pco-dot{position:absolute;display:none;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--pc);border:2px solid #07101a;box-shadow:0 0 8px var(--pc);pointer-events:auto;cursor:pointer}
+@keyframes pcoPop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+#pcb-badge{position:absolute;top:112px;left:50%;transform:translateX(-50%);z-index:12;display:none;padding:5px 12px;border-radius:14px;background:var(--bg-panel);border:1px solid rgba(251,191,36,.6);color:#fbbf24;font:600 10px var(--font-mono);letter-spacing:.4px;pointer-events:none;white-space:nowrap}
+.pcb-mode #sim-card{display:none}
+#station-note{position:absolute;top:112px;left:50%;transform:translateX(-50%);z-index:12;display:none;padding:5px 12px;border-radius:14px;background:var(--bg-panel);border:1px solid rgba(251,191,36,.6);color:#fbbf24;font:600 10px var(--font-mono);letter-spacing:.3px;pointer-events:none;white-space:nowrap}
+.station-mode #station-note{display:block}.station-mode #ft-pcb,.station-mode #ft-pwr,.station-mode #ft-radio{display:none}.station-mode #ft-tbd{display:flex!important}
+.brand-note{font-size:10px;font-style:italic;color:#fbbf24;opacity:.9;margin-top:1px}
+</style>
 
   <!-- Load Three.js, OrbitControls and Tween with automatic fallbacks -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
@@ -684,15 +728,18 @@
   <div id="labels-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 6;"></div>
 
   <!-- Header -->
+  <div id="node-badge"></div>
+  <div id="station-note">Milk unit · proposed 3D only · enclosure design is subject to change</div>
   <header>
     <div class="brand-wrap">
       <div class="brand-logo-badge">MG</div>
       <div class="brand-text">
-        <h1>MASTITISGUARD <span>AI</span> <span class="badge-tag">H14_SPIRIT</span></h1>
-        <div class="brand-sub">Team SPIRIT · Animal Wearable 3D Engineering Twin (DFM Model)</div>
+        <h1>MASTITISGUARD <span>AI</span> <span class="badge-tag" style="text-transform:none">H14_Spirit</span></h1>
+        <div class="brand-sub">Team H14_Spirit · Offline Edge-AI Mastitis Platform · Wearable Collar + Milk Station</div>
       </div>
     </div>
     <div class="header-actions">
+      <button class="btn-ghost" id="btn-switch"><span>Switch: Milk Station</span></button>
       <button class="btn-ghost" id="btn-xray">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
         <span>X-Ray Shell</span>
@@ -773,7 +820,7 @@
       </div>
       <div class="toggles-grid">
         <div class="toggle-chip active" id="toggle-pins">
-          <span>3D Markers</span>
+          <span>Labels</span>
           <span class="dot"></span>
         </div>
         <div class="toggle-chip active" id="toggle-axes">
@@ -781,7 +828,7 @@
           <span class="dot"></span>
         </div>
         <div class="toggle-chip active" id="toggle-strap">
-          <span>Strap & Lugs</span>
+          <span>Strap & Buckle</span>
           <span class="dot"></span>
         </div>
         <div class="toggle-chip active" id="toggle-screws">
@@ -790,6 +837,10 @@
         </div>
       </div>
     </div>
+  <div class="glass-card"><div class="control-header"><div class="control-title">Early-Warning Simulation</div></div>
+<div class="stg-grid"><button class="btn-action stg" data-s="0">1 Safe</button><button class="btn-action stg" data-s="1">2 Moderate</button><button class="btn-action stg" data-s="2">3 High</button><button class="btn-action stg" data-s="3">4 Critical</button></div>
+<div class="explode-btn-row"><button class="btn-action primary" id="btn-tour">▶ Run demo</button><button class="btn-action" id="btn-voice">Voice: OFF</button></div>
+<div class="tbar"><i id="tour-bar"></i></div></div>
   </div>
 
   <!-- Right Inspection Drawer -->
@@ -808,1429 +859,729 @@
         </div>
       </div>
 
-      <table class="spec-table">
-        <tbody>
-          <tr><td class="label">Material Grade</td><td class="val" id="disp-mat">ABS/Polycarbonate Blend</td></tr>
-          <tr><td class="label">Ingress Protection</td><td class="val" id="disp-ip">IP65 / NEMA 4X</td></tr>
-          <tr><td class="label">Dimensions (L×W×H)</td><td class="val" id="disp-dim">86.0 × 72.0 × 16.0 mm</td></tr>
-          <tr><td class="label">Hardware Fasteners</td><td class="val" id="disp-fasteners">4× M3×10mm Hex Socket Cap</td></tr>
-          <tr><td class="label">Manufacturing</td><td class="val" id="disp-mfg">CNC Prototype / Phase 2 Injection</td></tr>
-        </tbody>
-      </table>
+      <table class="spec-table"><tbody>
+<tr><td class="label">What it does</td><td class="val" id="disp-fn"></td></tr>
+<tr><td class="label">Why it matters</td><td class="val" id="disp-why"></td></tr>
+<tr><td class="label">Key features</td><td class="val" id="disp-feat"></td></tr>
+<tr><td class="label">Est. cost</td><td class="val" id="disp-cost"></td></tr></tbody></table>
 
-      <div class="part-desc" id="disp-part-desc">
-        Chunky high-durability enclosure lid featuring 4 corner recessed counterbores for flush socket screws. Integrates recessed center plate for farm RFID/serial barcode asset identification and lateral impact bumpers.
-      </div>
+      
 
-      <div class="part-highlight-box" id="disp-part-note">
-        <strong>Engineering Feature:</strong> Engineered perimeter tongue-and-groove compression lip compresses the IP67 elastomer gasket continuously across the livestock neck environment.
-      </div>
+      
     </div>
 
+    <div class="glass-card esp-card"><div class="control-title" style="color:var(--accent-gold);margin-bottom:8px">ESP-NOW · 100% OFFLINE</div>
+<div style="font-size:12px;line-height:1.6;color:var(--text-main)">Offline-first by design. Collars and the milk station talk straight to the shed gateway over ESP-NOW (2.4 GHz). No Wi-Fi network, router, SIM or internet is needed, so there are no monthly fees and it works in low-signal sheds.</div></div>
     <!-- Quick Architecture Overview -->
     <div class="glass-card">
       <div class="control-header">
         <div class="control-title">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Hardware Architecture (H14_SPIRIT)
+          Decoupled Architecture
         </div>
       </div>
       <div style="font-size: 11px; color: var(--text-muted); line-height: 1.6;">
-        <p style="margin-bottom: 8px;">
-          <strong style="color: var(--accent-mint);">Decoupled Edge Pipeline:</strong> 24/7 rumination jaw kinematics via MPU6050 + subclinical fever tracking via contact MAX30205.
-        </p>
-        <p>
-          <strong style="color: var(--accent-cyan);">Zero Cloud SIM Costs:</strong> 100% autonomous 2.4 GHz local ESP-NOW telemetry packets to shed gateway. Up to 12-month battery life with 2600mAh Li-ion cell.
-        </p>
+        <div id="arch-body"></div>
       </div>
     </div>
   </div>
 
+  <div id="sim-card"><div class="sim-top"><b id="sim-title"></b><span id="sim-score"></span></div><div class="sbar"><i id="sim-bar"></i></div><pre id="sim-tel"></pre><div id="sim-flow"></div><small>Illustrative scenario · not clinical data</small></div>
   <!-- Bottom HUD Footer -->
   <div class="hud-footer">
     <div class="footer-stat">
       <div class="footer-dot"></div>
       <span>System: <b>MastitisGuard AI Active</b></span>
     </div>
-    <div class="footer-stat">
-      <span>PCB Footprint: <b>77.0 × 61.0 mm</b></span>
+    <div class="footer-stat" id="ft-pcb">
+      <span>PCB Footprint: <b>77 × 81 mm</b></span>
     </div>
-    <div class="footer-stat">
+    <div class="footer-stat" id="ft-pwr">
       <span>Power Source: <b>18650 Li-ion 3.7V</b></span>
     </div>
-    <div class="footer-stat">
+    <div class="footer-stat" id="ft-radio">
       <span>Radio: <b>ESP-NOW Telemetry</b></span>
     </div>
+    <div class="footer-stat" id="ft-tbd" style="display:none;color:var(--text-muted)"><span>Milk unit specifications: <b>not yet finalised</b></span></div>
     <div class="footer-stat" style="color: var(--text-sub);">
-      <span>Tip: Click any part or 3D pin to inspect specs</span>
+      <span>Tip: Explode the model, then click a label</span>
     </div>
   </div>
 
-  <script>
-    "use strict";
-
-    /* =========================================================================
-       1. DATA DEFINITIONS & ENGINEERING SPECIFICATIONS
-       Matching reference diagram: 01 to 06, assembled top view, and PCB layout
-       ========================================================================= */
-    const COMPONENTS = [
-      {
-        num: "01",
-        key: "topCover",
-        id: "MG-01-TC",
-        title: "Top Cover",
-        subtitle: "IP65 ABS / Polycarbonate Housing Lid",
-        mat: "ABS / Polycarbonate (UL94-V0)",
-        ip: "IP65 Waterproof / Dustproof",
-        dim: "86.0 × 72.0 × 16.0 mm",
-        fasteners: "4× M3×10mm A2 Stainless Hex Bolts",
-        mfg: "SLA/CNC Prototype · Phase 2 Tooling",
-        desc: "Ruggedized exterior enclosure top featuring 4 corner counterbores, reinforced side shock flanges, and a recessed central branding and barcode/RFID tag placement area.",
-        note: "Perimeter sealing lip provides uniform compression over the elastomeric gasket when torqued to 0.9 Nm.",
-        restY: 1.0,
-        explodedY: 10.2,
-        pinOffset: [0, 1.2, 0]
-      },
-      {
-        num: "02",
-        key: "gasket",
-        id: "MG-02-SG",
-        title: "Sealing Gasket",
-        subtitle: "IP67 Continuous Environmental Seal",
-        mat: "Fluorosilicone / EPDM Shore A 55",
-        ip: "IP67 Continuous Submersion",
-        dim: "82.5 × 68.5 × 2.8 mm",
-        fasteners: "Direct compression in tongue-and-groove",
-        mfg: "Custom O-ring Die Extrusion",
-        desc: "Precision molded square-profile continuous elastomeric sealing ring that sits seamlessly into the perimeter groove of the bottom enclosure, preventing slurry, saliva, and moisture ingress.",
-        note: "Resistant to animal ammonia, agricultural wash-down chemicals, and UV exposure.",
-        restY: 0.1,
-        explodedY: 7.4,
-        pinOffset: [3.8, 0, 0]
-      },
-      {
-        num: "03",
-        key: "gpsModule",
-        id: "MG-03-GPS",
-        title: "Antenna Module",
-        subtitle: "NEO-6M Ceramic GPS Patch Module",
-        mat: "Dielectric Ceramic + Gold Ground Shield",
-        ip: "Protected inside sealed chassis",
-        dim: "25.0 × 25.0 × 4.2 mm",
-        fasteners: "SMD soldered to carrier header",
-        mfg: "Surface-mount patch on FR4 carrier",
-        desc: "High-gain ceramic patch antenna tuned for GPS L1 frequency. Features central silver electrode metallization, metallic bottom ground shield, and dedicated low-noise RF circuit.",
-        note: "Positioned at the upper envelope of the enclosure stack to maximize sky satellite signal through the non-metallic polycarb lid.",
-        restY: 0.55,
-        explodedY: 4.9,
-        pinOffset: [1.2, 0.4, 1.2]
-      },
-      {
-        num: "04",
-        key: "mainPcb",
-        id: "MG-04-PCB",
-        title: "Main Compute PCB",
-        subtitle: "ESP32 DevKit V1 + MPU6050 + MAX30205",
-        mat: "4-Layer FR4 · TG150 · ENIG Gold Finish",
-        ip: "Conformal Silicone Coated",
-        dim: "77.0 × 61.0 × 1.6 mm",
-        fasteners: "4× M2.5 Standoff Screws",
-        mfg: "SMT Automation Assembly",
-        desc: "Core processing unit running low-power RTOS. Houses the ESP32-WROOM microcontroller with metal RF shield, MPU6050 6-axis motion sensor for rumination tracking, MAX30205 precision digital body temperature front-end, dual 15-pin header sockets, and Team SPIRIT silkscreen.",
-        note: "PCB layout dimensions match the engineering schematic: exactly 77.00 mm length by 61.00 mm width with 18.84 mm U2 header pitch.",
-        restY: 0.25,
-        explodedY: 2.3,
-        pinOffset: [-2.2, 0.5, -1.5]
-      },
-      {
-        num: "05",
-        key: "batteryPack",
-        id: "MG-05-BAT",
-        title: "Li-ion Battery Pack",
-        subtitle: "18650 Cell 3.7V 2600mAh with Safety PCM",
-        mat: "LiNiMnCoO2 (NMC) · PVC Heat Shrink",
-        ip: "Integrated overcharge/discharge PCM",
-        dim: "Ø18.4 × 65.2 mm cylindrical",
-        fasteners: "Internal chassis friction-fit cradle",
-        mfg: "Certified Grade-A High-Drain Cell",
-        desc: "Industrial 18650 rechargeable battery cell providing 9.62 Wh of energy storage. Terminated with 24AWG flexible red/black silicone wires, insulation collar, and integrated battery management circuitry.",
-        note: "Provides 6 to 12 months autonomous continuous operation under optimized ESP32 deep-sleep and sensor polling duty cycles.",
-        restY: -0.65,
-        explodedY: -1.3,
-        pinOffset: [0, 0.6, 0]
-      },
-      {
-        num: "06",
-        key: "bottomEnclosure",
-        id: "MG-06-BE",
-        title: "Bottom Enclosure",
-        subtitle: "IP65 ABS/Polycarbonate with Strap Mounts",
-        mat: "ABS / Polycarbonate Blend (UV Stabilized)",
-        ip: "IP65 Ingress Standard",
-        dim: "86.0 × 72.0 × 20.0 mm",
-        fasteners: "4× Brass Threaded M3 Inserts",
-        mfg: "Injection Molding / Internal Standoffs",
-        desc: "Structural base container with internal battery containment ribs, PCB mounting standoffs, 3 front-side circular sensor port cutouts, and integrated heavy-duty strap hinge lugs.",
-        note: "Smooth contoured animal-facing bottom prevents chafing on the bovine dewlap and neck skin.",
-        restY: -0.9,
-        explodedY: -5.2,
-        pinOffset: [0, -1.0, 0]
-      }
-    ];
-
-    /* =========================================================================
-       2. THREE.JS ENGINE SETUP & LIGHTING
-       ========================================================================= */
-    const container = document.getElementById("canvas-container");
-    const labelsContainer = document.getElementById("labels-container");
-
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x070b12);
-    scene.fog = new THREE.FogExp2(0x070b12, 0.015);
-
-    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 150);
-    camera.position.set(16, 13, 20);
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, preserveDrawingBuffer: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.outputEncoding = THREE.sRGBEncoding;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.25;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    container.appendChild(renderer.domElement);
-
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.minDistance = 6;
-    controls.maxDistance = 60;
-    controls.target.set(0, 1.2, 0);
-
-    /* Studio Lights */
-    const ambientLight = new THREE.AmbientLight(0x243b55, 0.85);
-    scene.add(ambientLight);
-
-    const keyLight = new THREE.DirectionalLight(0xfff7ed, 1.8);
-    keyLight.position.set(15, 24, 12);
-    keyLight.castShadow = true;
-    keyLight.shadow.mapSize.width = 2048;
-    keyLight.shadow.mapSize.height = 2048;
-    keyLight.shadow.camera.near = 5;
-    keyLight.shadow.camera.far = 50;
-    keyLight.shadow.camera.left = -16;
-    keyLight.shadow.camera.right = 16;
-    keyLight.shadow.camera.top = 16;
-    keyLight.shadow.camera.bottom = -16;
-    keyLight.shadow.bias = -0.0004;
-    scene.add(keyLight);
-
-    const fillLight = new THREE.DirectionalLight(0x38bdf8, 1.0);
-    fillLight.position.set(-18, 10, -12);
-    scene.add(fillLight);
-
-    const rimLight = new THREE.DirectionalLight(0x00f0aa, 0.7);
-    rimLight.position.set(0, -10, 18);
-    scene.add(rimLight);
-
-    /* Ground Shadow Plane & Studio Grid */
-    const shadowPlaneGeo = new THREE.PlaneGeometry(120, 120);
-    const shadowPlaneMat = new THREE.ShadowMaterial({ opacity: 0.35 });
-    const shadowPlane = new THREE.Mesh(shadowPlaneGeo, shadowPlaneMat);
-    shadowPlane.rotation.x = -Math.PI / 2;
-    shadowPlane.position.y = -8.5;
-    shadowPlane.receiveShadow = true;
-    scene.add(shadowPlane);
-
-    const gridHelper = new THREE.GridHelper(80, 40, 0x1b354f, 0x0d1e2e);
-    gridHelper.position.y = -8.48;
-    scene.add(gridHelper);
-
-    /* Assembly Groups */
-    const assemblyGroup = new THREE.Group();
-    scene.add(assemblyGroup);
-
-    const partGroups = {};
-    const pickableMeshes = [];
-    const housingMeshes = [];
-    const datumLinesGroup = new THREE.Group();
-    scene.add(datumLinesGroup);
-
-    let explodeProgress = 0.0;
-    let isXray = false;
-    let isTurntable = false;
-    let selectedComponent = null;
-
-    /* =========================================================================
-       3. PROCEDURAL TEXTURES GENERATION (HIGH RESOLUTION)
-       ========================================================================= */
-
-    /* 3.1 Top Cover Label Plate Texture (Recessed Display Plate) */
-    function createTopLabelTexture() {
-      const canvas = document.createElement("canvas");
-      canvas.width = 1024;
-      canvas.height = 768;
-      const ctx = canvas.getContext("2d");
-
-      // Dark tactical plate background
-      ctx.fillStyle = "#262b32";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Fine stipple/sand texture
-      ctx.fillStyle = "rgba(255,255,255,0.025)";
-      for (let i = 0; i < 40000; i++) {
-        ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 2, 2);
-      }
-
-      // Dashed border matching the reference image: "SPACE FOR LABEL / BARCODE"
-      ctx.strokeStyle = "rgba(215, 225, 235, 0.55)";
-      ctx.lineWidth = 6;
-      ctx.setLineDash([20, 14]);
-      ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
-      ctx.setLineDash([]);
-
-      // Main Text matching reference image
-      ctx.fillStyle = "#d0d7de";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.font = "bold 44px 'Inter', sans-serif";
-      ctx.letterSpacing = "3px";
-      ctx.fillText("SPACE FOR", canvas.width / 2, canvas.height / 2 - 32);
-      ctx.fillText("LABEL / BARCODE", canvas.width / 2, canvas.height / 2 + 28);
-
-      // Secondary technical micro-print
-      ctx.font = "600 24px 'JetBrains Mono', monospace";
-      ctx.fillStyle = "#00f0aa";
-      ctx.fillText("MASTITISGUARD AI · H14_SPIRIT", canvas.width / 2, canvas.height / 2 + 105);
-
-      const texture = new THREE.CanvasTexture(canvas);
-      texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-      return texture;
-    }
-
-    /* 3.2 Main Compute PCB Layout Texture (77.00 × 61.00 mm) */
-    function createPcbSilkTexture() {
-      const canvas = document.createElement("canvas");
-      canvas.width = 2048;
-      canvas.height = 1622; // Aspect ratio matches 77.00 mm × 61.00 mm
-      const ctx = canvas.getContext("2d");
-
-      const w = canvas.width;
-      const h = canvas.height;
-
-      // Rich emerald green FR4 soldermask
-      ctx.fillStyle = "#114728";
-      ctx.fillRect(0, 0, w, h);
-
-      // Copper ground plane hatch
-      ctx.strokeStyle = "#165a34";
-      ctx.lineWidth = 2;
-      for (let x = 0; x < w; x += 16) {
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
-      }
-      for (let y = 0; y < h; y += 16) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-      }
-
-      // Copper traces routing between modules
-      ctx.strokeStyle = "#c8ab52"; // Gold exposed / buried traces
-      ctx.lineWidth = 7;
-      ctx.lineJoin = "round";
-
-      function drawTrace(pts) {
-        ctx.beginPath();
-        pts.forEach((p, idx) => {
-          const px = p[0] * w / 100;
-          const py = p[1] * h / 100;
-          if (idx === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-        });
-        ctx.stroke();
-      }
-
-      // Traces from ESP32 to MPU6050 & MAX30205
-      drawTrace([[50, 15], [35, 15], [25, 30], [25, 60], [20, 75]]);
-      drawTrace([[55, 20], [68, 20], [75, 35], [75, 70], [80, 85]]);
-      drawTrace([[45, 25], [45, 45], [52, 52], [52, 60]]);
-      drawTrace([[15, 20], [15, 35], [22, 42]]);
-      drawTrace([[85, 30], [85, 55], [88, 62]]);
-
-      // Silkscreen Lines & Footprint Outlines (White)
-      ctx.strokeStyle = "#edf7ee";
-      ctx.lineWidth = 4;
-
-      // 1. Top Right Silkscreen Box: "H14_SPIRIT" with cursive "Spirit"
-      ctx.strokeRect(w * 0.77, h * 0.04, w * 0.20, h * 0.12);
-      ctx.fillStyle = "#edf7ee";
-      ctx.font = "bold 42px 'Inter', sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText("H14_SPIRIT", w * 0.87, h * 0.09);
-
-      ctx.fillStyle = "#fbbf24";
-      ctx.font = "italic bold 36px 'Georgia', serif";
-      ctx.fillText("Spirit", w * 0.87, h * 0.14);
-
-      // 2. Dimension callouts from schematic
-      ctx.font = "26px 'JetBrains Mono', monospace";
-      ctx.fillStyle = "#a3e635";
-      ctx.fillText("77.00 mm", w * 0.5, h * 0.98);
-      ctx.fillText("61.00 mm", w * 0.05, h * 0.5);
-
-      // 3. U2 ESP32 Header Outlines (Top)
-      ctx.strokeStyle = "#edf7ee";
-      ctx.strokeRect(w * 0.32, h * 0.06, w * 0.36, h * 0.32);
-      ctx.font = "32px 'JetBrains Mono', monospace";
-      ctx.fillStyle = "#edf7ee";
-      ctx.fillText("U2 (ESP32)", w * 0.5, h * 0.09);
-
-      // Header pin pads (Gold circles with hole)
-      function drawPinRow(startX, startY, count, isVertical, spacing) {
-        for (let i = 0; i < count; i++) {
-          const px = startX + (isVertical ? 0 : i * spacing);
-          const py = startY + (isVertical ? i * spacing : 0);
-          ctx.fillStyle = "#eab308";
-          ctx.beginPath(); ctx.arc(px, py, 12, 0, Math.PI * 2); ctx.fill();
-          ctx.fillStyle = "#1e293b";
-          ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fill();
-        }
-      }
-
-      drawPinRow(w * 0.36, h * 0.14, 6, true, h * 0.04);
-      drawPinRow(w * 0.64, h * 0.14, 6, true, h * 0.04);
-
-      // 4. MAX30205 Footprint (Middle)
-      ctx.strokeRect(w * 0.34, h * 0.44, w * 0.32, h * 0.16);
-      drawPinRow(w * 0.38, h * 0.48, 6, false, w * 0.048);
-      ctx.fillStyle = "#edf7ee";
-      ctx.font = "bold 32px 'JetBrains Mono', monospace";
-      ctx.fillText("MAX30205", w * 0.5, h * 0.57);
-
-      // 5. NEO6MS1 Footprint (Lower Right)
-      ctx.strokeRect(w * 0.48, h * 0.66, w * 0.46, h * 0.28);
-      ctx.fillText("NEO6MS1", w * 0.71, h * 0.81);
-      drawPinRow(w * 0.90, h * 0.70, 4, true, h * 0.06);
-
-      // 6. MPU6050 Footprint (Lower Left)
-      ctx.strokeRect(w * 0.08, h * 0.66, w * 0.32, h * 0.28);
-      ctx.fillText("MPU6050", w * 0.24, h * 0.92);
-      drawPinRow(w * 0.34, h * 0.70, 6, true, h * 0.045);
-
-      // 7. Battery Connectors & J2 (Upper Left)
-      ctx.fillText("J2", w * 0.18, h * 0.09);
-      drawPinRow(w * 0.18, h * 0.14, 2, true, h * 0.07);
-      ctx.font = "24px 'JetBrains Mono', monospace";
-      ctx.fillText("Battery +VE", w * 0.18, h * 0.26);
-      ctx.fillText("Battery -VE", w * 0.18, h * 0.31);
-
-      // 8. Resistors R1 & R2
-      ctx.fillText("R1", w * 0.77, h * 0.26);
-      ctx.fillText("R2", w * 0.77, h * 0.42);
-
-      const texture = new THREE.CanvasTexture(canvas);
-      texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-      return texture;
-    }
-
-    /* 3.3 ESP32-WROOM Metal Shield Laser-Etched Texture */
-    function createEsp32CanTexture() {
-      const canvas = document.createElement("canvas");
-      canvas.width = 512;
-      canvas.height = 512;
-      const ctx = canvas.getContext("2d");
-
-      // Brushed silver shield finish
-      ctx.fillStyle = "#cfd6dc";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "rgba(0,0,0,0.04)";
-      for (let i = 0; i < 5000; i++) {
-        ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 3, 1);
-      }
-
-      // Laser Etched text
-      ctx.fillStyle = "#334155";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-
-      ctx.font = "bold 38px 'Inter', sans-serif";
-      ctx.fillText("ESPRESSIF", 256, 120);
-
-      ctx.font = "bold 44px 'Inter', sans-serif";
-      ctx.fillText("ESP-WROOM-32", 256, 175);
-
-      ctx.font = "20px 'JetBrains Mono', monospace";
-      ctx.fillText("FCC ID: 2AC7Z-ESPWROOM32", 256, 240);
-      ctx.fillText("KCC-CRM-es5-ESP-WROOM-32", 256, 275);
-      ctx.fillText("CE 0700 · RoHS · 2.4 GHz", 256, 310);
-
-      // Pin 1 dot
-      ctx.fillStyle = "#1e293b";
-      ctx.beginPath(); ctx.arc(45, 45, 12, 0, Math.PI * 2); ctx.fill();
-
-      // QR Code Box Placeholder
-      ctx.strokeStyle = "#334155";
-      ctx.lineWidth = 4;
-      ctx.strokeRect(186, 360, 140, 100);
-      ctx.font = "18px 'JetBrains Mono', monospace";
-      ctx.fillText("H14_SPIRIT", 256, 410);
-
-      const texture = new THREE.CanvasTexture(canvas);
-      return texture;
-    }
-
-    /* 3.4 18650 Li-ion Cell Authentic Foil Label Texture */
-    function createBatteryLabelTexture() {
-      const canvas = document.createElement("canvas");
-      canvas.width = 1024;
-      canvas.height = 512;
-      const ctx = canvas.getContext("2d");
-
-      // Metallic industrial dark wrap with silver band
-      ctx.fillStyle = "#1c232d";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Silver central label
-      ctx.fillStyle = "#e2e8f0";
-      ctx.fillRect(80, 50, canvas.width - 160, canvas.height - 100);
-
-      // Text on label
-      ctx.fillStyle = "#0f172a";
-      ctx.textAlign = "center";
-      ctx.font = "bold 64px 'Inter', sans-serif";
-      ctx.fillText("18650 Li-ion", canvas.width / 2, 140);
-
-      ctx.font = "bold 56px 'JetBrains Mono', monospace";
-      ctx.fillStyle = "#0284c7";
-      ctx.fillText("3.7V 2600mAh", canvas.width / 2, 210);
-
-      ctx.font = "600 24px 'JetBrains Mono', monospace";
-      ctx.fillStyle = "#334155";
-      ctx.fillText("RECHARGEABLE ENERGY STORAGE · 9.62Wh", canvas.width / 2, 270);
-      ctx.fillText("CAUTION: DO NOT INCINERATE OR SHORT CIRCUIT", canvas.width / 2, 310);
-
-      // Barcode lines
-      const barcodeY = 350;
-      const barcodeH = 50;
-      let bx = 220;
-      ctx.fillStyle = "#0f172a";
-      for (let i = 0; i < 48; i++) {
-        const barW = (i % 3 === 0 || i % 7 === 0) ? 6 : 3;
-        ctx.fillRect(bx, barcodeY, barW, barcodeH);
-        bx += barW + ((i % 4 === 0) ? 8 : 4);
-      }
-
-      const texture = new THREE.CanvasTexture(canvas);
-      return texture;
-    }
-
-    /* =========================================================================
-       4. PROCEDURAL 3D CAD GEOMETRIES
-       Detailed models matching the 6 numbered components from reference image
-       ========================================================================= */
-
-    // Helper: Rounded Box with chamfers
-    function createRoundedBoxGeometry(w, h, d, r, s = 4) {
-      const shape = new THREE.Shape();
-      const x = -w / 2, y = -d / 2;
-      shape.moveTo(x + r, y);
-      shape.lineTo(x + w - r, y);
-      shape.quadraticCurveTo(x + w, y, x + w, y + r);
-      shape.lineTo(x + w, y + d - r);
-      shape.quadraticCurveTo(x + w, y + d, x + w - r, y + d);
-      shape.lineTo(x + r, y + d);
-      shape.quadraticCurveTo(x, y + d, x, y + d - r);
-      shape.lineTo(x, y + r);
-      shape.quadraticCurveTo(x, y, x + r, y);
-
-      const extrudeSettings = {
-        depth: h,
-        bevelEnabled: true,
-        bevelSegments: s,
-        steps: 1,
-        bevelSize: r * 0.4,
-        bevelThickness: r * 0.4
-      };
-
-      const geo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      geo.center();
-      geo.rotateX(-Math.PI / 2);
-      return geo;
-    }
-
-    /* 4.1 Component 01: Top Cover Housing (IP65 ABS/PC) */
-    function buildTopCover() {
-      const group = new THREE.Group();
-      
-      const topCoverMat = new THREE.MeshStandardMaterial({
-        color: 0x3d444c, // Tactical graphite gray
-        roughness: 0.58,
-        metalness: 0.18
-      });
-
-      // Main Outer Shell: 86 × 72 × 16 mm (8.6 × 7.2 × 1.6 cm)
-      const mainShell = new THREE.Mesh(createRoundedBoxGeometry(8.6, 1.4, 7.2, 0.7, 5), topCoverMat);
-      mainShell.castShadow = true;
-      mainShell.receiveShadow = true;
-      group.add(mainShell);
-      housingMeshes.push(mainShell);
-
-      // Recessed Central Plate for Barcode / Label
-      const labelPlateGeo = new THREE.PlaneGeometry(5.4, 4.0);
-      const labelPlateMat = new THREE.MeshStandardMaterial({
-        map: createTopLabelTexture(),
-        roughness: 0.45,
-        metalness: 0.1
-      });
-      const labelPlate = new THREE.Mesh(labelPlateGeo, labelPlateMat);
-      labelPlate.rotation.x = -Math.PI / 2;
-      labelPlate.position.y = 0.71; // Slightly raised above recessed floor
-      group.add(labelPlate);
-
-      // Recessed bezel border frame around label plate
-      const borderGeo = new THREE.BoxGeometry(5.6, 0.08, 4.2);
-      const borderMat = new THREE.MeshStandardMaterial({ color: 0x22262c, roughness: 0.7 });
-      const border = new THREE.Mesh(borderGeo, borderMat);
-      border.position.y = 0.69;
-      group.add(border);
-
-      // 4 Corner Counterbored Screw Wells & Screws
-      const cornerOffsets = [
-        [-3.4, -2.7], [3.4, -2.7],
-        [-3.4, 2.7], [3.4, 2.7]
-      ];
-
-      const wellGeo = new THREE.CylinderGeometry(0.42, 0.42, 0.5, 24);
-      const wellMat = new THREE.MeshStandardMaterial({ color: 0x1e2227, roughness: 0.8 });
-
-      const screwHeadGeo = new THREE.CylinderGeometry(0.32, 0.32, 0.22, 24);
-      const hexHoleGeo = new THREE.CylinderGeometry(0.13, 0.13, 0.1, 6);
-      const screwMat = new THREE.MeshStandardMaterial({ color: 0xdde3ea, metalness: 0.88, roughness: 0.24 });
-      const hexDarkMat = new THREE.MeshBasicMaterial({ color: 0x090c10 });
-
-      cornerOffsets.forEach(([cx, cz]) => {
-        // Recessed well
-        const well = new THREE.Mesh(wellGeo, wellMat);
-        well.position.set(cx, 0.5, cz);
-        group.add(well);
-
-        // M3 Screw Head in well
-        const screwHead = new THREE.Mesh(screwHeadGeo, screwMat);
-        screwHead.position.set(cx, 0.55, cz);
-        screwHead.castShadow = true;
-        group.add(screwHead);
-
-        // Hex socket indentation
-        const hex = new THREE.Mesh(hexHoleGeo, hexDarkMat);
-        hex.position.set(cx, 0.67, cz);
-        group.add(hex);
-      });
-
-      // Lateral Rugged Shock Bumpers / Grip Flanges on left & right
-      [-4.35, 4.35].forEach(bx => {
-        const flange = new THREE.Mesh(createRoundedBoxGeometry(0.45, 1.0, 3.8, 0.2, 3), topCoverMat);
-        flange.position.set(bx, 0, 0);
-        flange.castShadow = true;
-        group.add(flange);
-        housingMeshes.push(flange);
-      });
-
-      return group;
-    }
-
-    /* 4.2 Component 02: Sealing Gasket (IP67 Seal) */
-    function buildSealingGasket() {
-      const group = new THREE.Group();
-
-      const gasketMat = new THREE.MeshStandardMaterial({
-        color: 0x111417,
-        roughness: 0.85,
-        metalness: 0.05
-      });
-
-      // Extrude continuous rectangular perimeter ring
-      const outerW = 8.2, outerD = 6.8;
-      const innerW = 7.6, innerD = 6.2;
-      const thickness = 0.28;
-
-      const shape = new THREE.Shape();
-      // Outer path
-      const r = 0.5;
-      shape.moveTo(-outerW/2 + r, -outerD/2);
-      shape.lineTo(outerW/2 - r, -outerD/2);
-      shape.quadraticCurveTo(outerW/2, -outerD/2, outerW/2, -outerD/2 + r);
-      shape.lineTo(outerW/2, outerD/2 - r);
-      shape.quadraticCurveTo(outerW/2, outerD/2, outerW/2 - r, outerD/2);
-      shape.lineTo(-outerW/2 + r, outerD/2);
-      shape.quadraticCurveTo(-outerW/2, outerD/2, -outerW/2, outerD/2 - r);
-      shape.lineTo(-outerW/2, -outerD/2 + r);
-      shape.quadraticCurveTo(-outerW/2, -outerD/2, -outerW/2 + r, -outerD/2);
-
-      // Inner hole
-      const hole = new THREE.Path();
-      const ir = 0.35;
-      hole.moveTo(-innerW/2 + ir, -innerD/2);
-      hole.lineTo(innerW/2 - ir, -innerD/2);
-      hole.quadraticCurveTo(innerW/2, -innerD/2, innerW/2, -innerD/2 + ir);
-      hole.lineTo(innerW/2, innerD/2 - ir);
-      hole.quadraticCurveTo(innerW/2, innerD/2, innerW/2 - ir, innerD/2);
-      hole.lineTo(-innerW/2 + ir, innerD/2);
-      hole.quadraticCurveTo(-innerW/2, innerD/2, -innerW/2, innerD/2 - ir);
-      hole.lineTo(-innerW/2, -innerD/2 + ir);
-      hole.quadraticCurveTo(-innerW/2, -innerD/2, -innerW/2 + ir, -innerD/2);
-
-      shape.holes.push(hole);
-
-      const geo = new THREE.ExtrudeGeometry(shape, { depth: thickness, bevelEnabled: true, bevelSize: 0.05, bevelThickness: 0.05 });
-      geo.center();
-      geo.rotateX(-Math.PI / 2);
-
-      const mesh = new THREE.Mesh(geo, gasketMat);
-      mesh.castShadow = true;
-      group.add(mesh);
-
-      return group;
-    }
-
-    /* 4.3 Component 03: Antenna Module (GPS NEO-6M) */
-    function buildGpsAntenna() {
-      const group = new THREE.Group();
-
-      // Green carrier sub-board
-      const subBoardGeo = new THREE.BoxGeometry(2.6, 0.12, 2.6);
-      const subBoardMat = new THREE.MeshStandardMaterial({ color: 0x14532d, roughness: 0.6 });
-      const subBoard = new THREE.Mesh(subBoardGeo, subBoardMat);
-      group.add(subBoard);
-
-      // Gold bottom ground shield
-      const shieldGeo = new THREE.BoxGeometry(2.4, 0.14, 2.4);
-      const goldMat = new THREE.MeshStandardMaterial({ color: 0xeab308, metalness: 0.85, roughness: 0.28 });
-      const shield = new THREE.Mesh(shieldGeo, goldMat);
-      shield.position.y = 0.12;
-      group.add(shield);
-
-      // Tan/beige high-dielectric ceramic patch block
-      const ceramicGeo = createRoundedBoxGeometry(2.2, 0.45, 2.2, 0.18, 3);
-      const ceramicMat = new THREE.MeshStandardMaterial({ color: 0xd7c7a5, roughness: 0.65, metalness: 0.12 });
-      const ceramic = new THREE.Mesh(ceramicGeo, ceramicMat);
-      ceramic.position.y = 0.38;
-      ceramic.castShadow = true;
-      group.add(ceramic);
-
-      // Silver circular metallization center dot / pin
-      const dotGeo = new THREE.CylinderGeometry(0.24, 0.24, 0.04, 32);
-      const silverMat = new THREE.MeshStandardMaterial({ color: 0xd1d5db, metalness: 0.9, roughness: 0.2 });
-      const dot = new THREE.Mesh(dotGeo, silverMat);
-      dot.position.y = 0.62;
-      group.add(dot);
-
-      // Position module over the NEO6MS1 footprint on the main board
-      group.position.set(1.4, 0, 1.2);
-
-      return group;
-    }
-
-    /* 4.4 Component 04: Main Compute PCB (ESP32 DevKit V1 + Sensors) */
-    function buildMainPcb() {
-      const group = new THREE.Group();
-
-      // 77.00 × 61.00 × 1.6 mm FR4 board
-      const pcbW = 7.70, pcbD = 6.10, pcbH = 0.16;
-      const pcbGeo = new THREE.BoxGeometry(pcbW, pcbH, pcbD);
-      const pcbMat = new THREE.MeshStandardMaterial({
-        color: 0x124d2b,
-        roughness: 0.5,
-        metalness: 0.15
-      });
-      const pcbBase = new THREE.Mesh(pcbGeo, pcbMat);
-      pcbBase.castShadow = true;
-      pcbBase.receiveShadow = true;
-      group.add(pcbBase);
-
-      // Top Silkscreen Artwork Surface
-      const silkGeo = new THREE.PlaneGeometry(pcbW, pcbD);
-      const silkMat = new THREE.MeshStandardMaterial({
-        map: createPcbSilkTexture(),
-        roughness: 0.6,
-        metalness: 0.12
-      });
-      const silkPlane = new THREE.Mesh(silkGeo, silkMat);
-      silkPlane.rotation.x = -Math.PI / 2;
-      silkPlane.position.y = pcbH / 2 + 0.005;
-      group.add(silkPlane);
-
-      // ESP32-WROOM Microcontroller with Metal RF Shield Can
-      const espGroup = new THREE.Group();
-      espGroup.position.set(0.0, 0.08, -1.8);
-
-      // Metal Shield Box
-      const canGeo = new THREE.BoxGeometry(1.8, 0.28, 1.6);
-      const canMat = new THREE.MeshStandardMaterial({
-        map: createEsp32CanTexture(),
-        metalness: 0.88,
-        roughness: 0.22
-      });
-      const can = new THREE.Mesh(canGeo, canMat);
-      can.position.y = 0.14;
-      can.castShadow = true;
-      espGroup.add(can);
-
-      // Golden Serpentine PCB Antenna on overhang
-      const antPoints = [];
-      for (let i = 0; i < 9; i++) {
-        const x = -0.7 + i * 0.17;
-        antPoints.push(new THREE.Vector3(x, 0.02, -0.9));
-        antPoints.push(new THREE.Vector3(x, 0.02, i % 2 ? -0.7 : -1.1));
-      }
-      const antGeo = new THREE.BufferGeometry().setFromPoints(antPoints);
-      const antLine = new THREE.Line(antGeo, new THREE.LineBasicMaterial({ color: 0xf59e0b, linewidth: 2 }));
-      espGroup.add(antLine);
-
-      group.add(espGroup);
-
-      // Dual-Row Header Pins (15 pins per row on left and right of ESP32)
-      const pinHeaderMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 });
-      const goldPinMat = new THREE.MeshStandardMaterial({ color: 0xfbbf24, metalness: 0.9, roughness: 0.25 });
-
-      [-1.4, 1.4].forEach(hx => {
-        // Black plastic header strip
-        const strip = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.45, 3.2), pinHeaderMat);
-        strip.position.set(hx, 0.25, -1.1);
-        group.add(strip);
-
-        // Gold pins protruding upward
-        for (let i = 0; i < 15; i++) {
-          const pin = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.65, 0.07), goldPinMat);
-          pin.position.set(hx, 0.55, -2.5 + i * 0.2);
-          group.add(pin);
-        }
-      });
-
-      // MPU6050 6-Axis Motion Sensor QFN IC (Lower Left)
-      const mpuMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.5, metalness: 0.2 });
-      const mpuChip = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.18, 0.8), mpuMat);
-      mpuChip.position.set(-2.0, 0.15, 1.7);
-      group.add(mpuChip);
-
-      // MAX30205 Clinical Precision Body Temperature Sensor (Center)
-      const maxMat = new THREE.MeshStandardMaterial({ color: 0xd97706, metalness: 0.75, roughness: 0.3 });
-      const maxChip = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.14, 0.65), maxMat);
-      maxChip.position.set(0.0, 0.12, 0.2);
-      group.add(maxChip);
-
-      // Axial Resistors R1 & R2 (Right side)
-      [0.6, -0.4].forEach(rz => {
-        const resBody = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.65, 16), new THREE.MeshStandardMaterial({ color: 0xd8c89d, roughness: 0.6 }));
-        resBody.rotation.z = Math.PI / 2;
-        resBody.position.set(2.6, 0.18, rz);
-        group.add(resBody);
-
-        // Resistor lead wires
-        const lead = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 1.1, 8), new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.8 }));
-        lead.rotation.z = Math.PI / 2;
-        lead.position.set(2.6, 0.16, rz);
-        group.add(lead);
-      });
-
-      return group;
-    }
-
-    /* 4.5 Component 05: Li-ion Battery Pack (18650 Cell) */
-    function buildBatteryPack() {
-      const group = new THREE.Group();
-
-      // Standard 18650 Cell: Diameter 18mm, Length 65mm (1.8cm × 6.5cm)
-      const cellGeo = new THREE.CylinderGeometry(0.9, 0.9, 6.5, 32);
-      const cellMat = new THREE.MeshStandardMaterial({
-        map: createBatteryLabelTexture(),
-        roughness: 0.35,
-        metalness: 0.3
-      });
-      const cell = new THREE.Mesh(cellGeo, cellMat);
-      cell.rotation.z = Math.PI / 2;
-      cell.castShadow = true;
-      group.add(cell);
-
-      // Metallic Positive Terminal Button & Crimp Ring
-      const capMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.9, roughness: 0.2 });
-      const posButton = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.16, 24), capMat);
-      posButton.rotation.z = Math.PI / 2;
-      posButton.position.x = 3.32;
-      group.add(posButton);
-
-      const negCap = new THREE.Mesh(new THREE.CylinderGeometry(0.78, 0.78, 0.08, 24), capMat);
-      negCap.rotation.z = Math.PI / 2;
-      negCap.position.x = -3.28;
-      group.add(negCap);
-
-      // Dual Red & Black Silicone Lead Wires with heat shrink
-      const wireCurvePointsRed = [
-        new THREE.Vector3(3.35, 0.15, 0),
-        new THREE.Vector3(3.8, 0.3, 0.3),
-        new THREE.Vector3(3.9, 0.8, 1.0),
-        new THREE.Vector3(2.6, 1.1, 1.5)
-      ];
-      const wireCurveRed = new THREE.CatmullRomCurve3(wireCurvePointsRed);
-      const wireRed = new THREE.Mesh(
-        new THREE.TubeGeometry(wireCurveRed, 24, 0.07, 8, false),
-        new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.4 })
-      );
-      group.add(wireRed);
-
-      const wireCurvePointsBlack = [
-        new THREE.Vector3(3.35, -0.15, 0),
-        new THREE.Vector3(3.7, -0.1, 0.3),
-        new THREE.Vector3(3.8, 0.6, 1.2),
-        new THREE.Vector3(2.6, 0.9, 1.7)
-      ];
-      const wireCurveBlack = new THREE.CatmullRomCurve3(wireCurvePointsBlack);
-      const wireBlack = new THREE.Mesh(
-        new THREE.TubeGeometry(wireCurveBlack, 24, 0.07, 8, false),
-        new THREE.MeshStandardMaterial({ color: 0x090d12, roughness: 0.6 })
-      );
-      group.add(wireBlack);
-
-      return group;
-    }
-
-    /* 4.6 Component 06: Bottom Enclosure (IP65 ABS/PC) */
-    function buildBottomEnclosure() {
-      const group = new THREE.Group();
-
-      const botMat = new THREE.MeshStandardMaterial({
-        color: 0x1c2127,
-        roughness: 0.72,
-        metalness: 0.15
-      });
-
-      // Main deep tub: 86.0 × 72.0 × 20.0 mm
-      const tub = new THREE.Mesh(createRoundedBoxGeometry(8.6, 1.8, 7.2, 0.7, 5), botMat);
-      tub.castShadow = true;
-      tub.receiveShadow = true;
-      group.add(tub);
-      housingMeshes.push(tub);
-
-      // 3 Front-Side Circular Ports / Cable Glands (seen clearly in reference image 06)
-      const portMat = new THREE.MeshStandardMaterial({ color: 0x101418, roughness: 0.85 });
-      const portRingMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.6, roughness: 0.4 });
-
-      [-2.3, 0, 2.3].forEach(px => {
-        const portRing = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.15, 24), portRingMat);
-        portRing.rotation.x = Math.PI / 2;
-        portRing.position.set(px, 0.1, 3.65);
-        group.add(portRing);
-
-        const portInner = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.18, 24), portMat);
-        portInner.rotation.x = Math.PI / 2;
-        portInner.position.set(px, 0.1, 3.68);
-        group.add(portInner);
-      });
-
-      // 4 Bottom Fastener Screws with Flat Washers
-      const botCornerOffsets = [
-        [-3.4, -2.7], [3.4, -2.7],
-        [-3.4, 2.7], [3.4, 2.7]
-      ];
-      const botScrewMat = new THREE.MeshStandardMaterial({ color: 0xcfd6dc, metalness: 0.9, roughness: 0.25 });
-      const washerMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.8, roughness: 0.3 });
-
-      botCornerOffsets.forEach(([bx, bz]) => {
-        const washer = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.06, 24), washerMat);
-        washer.position.set(bx, -0.92, bz);
-        group.add(washer);
-
-        const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.2, 24), botScrewMat);
-        bolt.position.set(bx, -1.02, bz);
-        group.add(bolt);
-      });
-
-      return group;
-    }
-
-    /* 4.7 Collar Strap Assembly (matching Top View - Assembled Wearable) */
-    function buildCollarStrap() {
-      const group = new THREE.Group();
-
-      const strapMat = new THREE.MeshStandardMaterial({
-        color: 0x161a20,
-        roughness: 0.88,
-        metalness: 0.08
-      });
-
-      const pinMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.85, roughness: 0.25 });
-
-      // Build Top and Bottom Strap Halves
-      [-1, 1].forEach(dir => {
-        const half = new THREE.Group();
-
-        // Main flexible band with 3 rectangular slotted holes (matching reference image)
-        const strapShape = new THREE.Shape();
-        const sw = 4.2, sl = 14.0, sr = 0.4;
-        strapShape.moveTo(-sw/2 + sr, 0);
-        strapShape.lineTo(sw/2 - sr, 0);
-        strapShape.quadraticCurveTo(sw/2, 0, sw/2, sr);
-        strapShape.lineTo(sw/2, sl - sr);
-        strapShape.quadraticCurveTo(sw/2, sl, sw/2 - sr, sl);
-        strapShape.lineTo(-sw/2 + sr, sl);
-        strapShape.quadraticCurveTo(-sw/2, sl, -sw/2, sl - sr);
-        strapShape.lineTo(-sw/2, sr);
-        strapShape.quadraticCurveTo(-sw/2, 0, -sw/2 + sr, 0);
-
-        // 3 Rectangular ventilation/sizing slots
-        const slotW = 1.8, slotL = 0.55, slotR = 0.15;
-        [4.0, 7.0, 10.0].forEach(slotY => {
-          const hole = new THREE.Path();
-          hole.moveTo(-slotW/2 + slotR, slotY);
-          hole.lineTo(slotW/2 - slotR, slotY);
-          hole.quadraticCurveTo(slotW/2, slotY, slotW/2, slotY + slotR);
-          hole.lineTo(slotW/2, slotY + slotL - slotR);
-          hole.quadraticCurveTo(slotW/2, slotY + slotL, slotW/2 - slotR, slotY + slotL);
-          hole.lineTo(-slotW/2 + slotR, slotY + slotL);
-          hole.quadraticCurveTo(-slotW/2, slotY + slotL, -slotW/2, slotY + slotL - slotR);
-          hole.lineTo(-slotW/2, slotY + slotR);
-          hole.quadraticCurveTo(-slotW/2, slotY, -slotW/2 + slotR, slotY);
-          strapShape.holes.push(hole);
-        });
-
-        const strapGeo = new THREE.ExtrudeGeometry(strapShape, { depth: 0.38, bevelEnabled: true, bevelSize: 0.08, bevelThickness: 0.08 });
-        strapGeo.center();
-        const strapMesh = new THREE.Mesh(strapGeo, strapMat);
-        strapMesh.rotation.x = -Math.PI / 2;
-        strapMesh.position.z = 7.0;
-        half.add(strapMesh);
-
-        // Steel Hinge Pivot Pin
-        const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 4.4, 24), pinMat);
-        pin.rotation.z = Math.PI / 2;
-        pin.position.set(0, 0, 0.3);
-        half.add(pin);
-
-        // Rotate & position half for top / bottom
-        half.position.set(0, -0.65, dir * 3.8);
-        if (dir === -1) {
-          half.rotation.y = Math.PI;
-        }
-
-        group.add(half);
-      });
-
-      return group;
-    }
-
-    /* 4.8 Datum Guide Lines (Engineering exploded trace axes) */
-    function buildDatumLines() {
-      datumLinesGroup.clear();
-      const lineMat = new THREE.LineDashedMaterial({
-        color: 0x38bdf8,
-        dashSize: 0.35,
-        gapSize: 0.25,
-        transparent: true,
-        opacity: 0.45
-      });
-
-      const corners = [
-        [-3.4, -2.7], [3.4, -2.7],
-        [-3.4, 2.7], [3.4, 2.7]
-      ];
-
-      corners.forEach(([cx, cz]) => {
-        const pts = [
-          new THREE.Vector3(cx, -7.5, cz),
-          new THREE.Vector3(cx, 13.0, cz)
-        ];
-        const geo = new THREE.BufferGeometry().setFromPoints(pts);
-        const line = new THREE.Line(geo, lineMat);
-        line.computeLineDistances();
-        datumLinesGroup.add(line);
-      });
-    }
-
-    /* =========================================================================
-       5. ASSEMBLE 3D DIGITAL TWIN & INTERACTION SYSTEM
-       ========================================================================= */
-
-    function initializeAssembly() {
-      // 01 Top Cover
-      const topCover = buildTopCover();
-      partGroups["topCover"] = { group: topCover, data: COMPONENTS[0] };
-      assemblyGroup.add(topCover);
-
-      // 02 Sealing Gasket
-      const gasket = buildSealingGasket();
-      partGroups["gasket"] = { group: gasket, data: COMPONENTS[1] };
-      assemblyGroup.add(gasket);
-
-      // 03 GPS Module
-      const gps = buildGpsAntenna();
-      partGroups["gpsModule"] = { group: gps, data: COMPONENTS[2] };
-      assemblyGroup.add(gps);
-
-      // 04 Main Compute PCB
-      const pcb = buildMainPcb();
-      partGroups["mainPcb"] = { group: pcb, data: COMPONENTS[3] };
-      assemblyGroup.add(pcb);
-
-      // 05 Battery Pack
-      const bat = buildBatteryPack();
-      partGroups["batteryPack"] = { group: bat, data: COMPONENTS[4] };
-      assemblyGroup.add(bat);
-
-      // 06 Bottom Enclosure
-      const bottom = buildBottomEnclosure();
-      partGroups["bottomEnclosure"] = { group: bottom, data: COMPONENTS[5] };
-      assemblyGroup.add(bottom);
-
-      // Collar Strap
-      const strap = buildCollarStrap();
-      partGroups["strap"] = { group: strap, data: null };
-      assemblyGroup.add(strap);
-
-      // Collect pickable meshes and map to component
-      Object.keys(partGroups).forEach(key => {
-        const entry = partGroups[key];
-        if (!entry.data) return;
-        entry.group.traverse(child => {
-          if (child.isMesh) {
-            child.userData.component = entry.data;
-            pickableMeshes.push(child);
-          }
-        });
-      });
-
-      buildDatumLines();
-      buildLayerPills();
-      build3DMarkerPins();
-      updateExplodedPositions(0);
-      selectComponent(COMPONENTS[0]);
-    }
-
-    /* Position parts along vertical datum based on explode progress (0.0 to 1.0) */
-    function updateExplodedPositions(pct) {
-      explodeProgress = pct;
-      document.getElementById("explode-pct-label").textContent = Math.round(pct * 100) + "%";
-      document.getElementById("explode-slider").value = pct * 100;
-      document.getElementById("explode-state-tag").textContent = pct > 0.05 ? "EXPLODED" : "ASSEMBLED";
-
-      COMPONENTS.forEach(comp => {
-        const entry = partGroups[comp.key];
-        if (entry) {
-          const targetY = comp.restY + (comp.explodedY - comp.restY) * pct;
-          entry.group.position.y = targetY;
-        }
-      });
-
-      // Strap moves slightly with bottom enclosure
-      if (partGroups["strap"]) {
-        partGroups["strap"].group.position.y = -0.9 + (-5.2 - -0.9) * pct;
-      }
-
-      updateMarkerPinPositions();
-    }
-
-    /* 3D Floating Badges (01 to 06) */
-    const markerElements = [];
-
-    function build3DMarkerPins() {
-      labelsContainer.replaceChildren();
-      markerElements.length = 0;
-
-      COMPONENTS.forEach(comp => {
-        const el = document.createElement("div");
-        el.className = "marker-label";
-        el.innerHTML = `<span class="marker-num">${comp.num}</span><span>${comp.title}</span>`;
-        el.addEventListener("click", (e) => {
-          e.stopPropagation();
-          selectComponent(comp);
-        });
-        labelsContainer.appendChild(el);
-        markerElements.push({ el, comp });
-      });
-    }
-
-    function updateMarkerPinPositions() {
-      if (!document.getElementById("toggle-pins").classList.contains("active")) {
-        labelsContainer.style.display = "none";
-        return;
-      }
-      labelsContainer.style.display = "block";
-
-      const tempV = new THREE.Vector3();
-      markerElements.forEach(({ el, comp }) => {
-        const entry = partGroups[comp.key];
-        if (!entry) return;
-
-        tempV.set(
-          entry.group.position.x + comp.pinOffset[0],
-          entry.group.position.y + comp.pinOffset[1],
-          entry.group.position.z + comp.pinOffset[2]
-        );
-
-        // Project 3D vector to 2D screen coordinates
-        tempV.project(camera);
-
-        // Hide if behind camera
-        if (tempV.z > 1) {
-          el.style.display = "none";
-          return;
-        }
-
-        const x = (tempV.x * 0.5 + 0.5) * window.innerWidth;
-        const y = (-(tempV.y * 0.5) + 0.5) * window.innerHeight;
-
-        el.style.display = "flex";
-        el.style.left = `${x}px`;
-        el.style.top = `${y}px`;
-      });
-    }
-
-    /* Layer Selection Pills in Drawer */
-    function buildLayerPills() {
-      const container = document.getElementById("layers-pills-bar");
-      container.replaceChildren();
-
-      COMPONENTS.forEach(comp => {
-        const pill = document.createElement("button");
-        pill.className = "layer-pill";
-        pill.id = `pill-${comp.key}`;
-        pill.textContent = `${comp.num} ${comp.title}`;
-        pill.addEventListener("click", () => selectComponent(comp));
-        container.appendChild(pill);
-      });
-    }
-
-    /* Select & Inspect Component */
-    function selectComponent(comp) {
-      selectedComponent = comp;
-
-      // Update Specs Drawer
-      document.getElementById("disp-part-id").textContent = `${comp.num} · ${comp.id}`;
-      document.getElementById("disp-part-title").textContent = comp.title;
-      document.getElementById("disp-part-sub").textContent = comp.subtitle;
-      document.getElementById("disp-mat").textContent = comp.mat;
-      document.getElementById("disp-ip").textContent = comp.ip;
-      document.getElementById("disp-dim").textContent = comp.dim;
-      document.getElementById("disp-fasteners").textContent = comp.fasteners;
-      document.getElementById("disp-mfg").textContent = comp.mfg;
-      document.getElementById("disp-part-desc").textContent = comp.desc;
-      document.getElementById("disp-part-note").innerHTML = `<strong>DFM Insight:</strong> ${comp.note}`;
-
-      // Update pills
-      document.querySelectorAll(".layer-pill").forEach(p => p.classList.remove("active"));
-      const activePill = document.getElementById(`pill-${comp.key}`);
-      if (activePill) activePill.classList.add("active");
-
-      // Emissive pulse on selected part
-      Object.keys(partGroups).forEach(k => {
-        const entry = partGroups[k];
-        if (!entry.data) return;
-        const isMatch = entry.data.key === comp.key;
-        entry.group.traverse(child => {
-          if (child.isMesh && child.material) {
-            if (isMatch) {
-              if (!child.userData.origEmissive) child.userData.origEmissive = child.material.emissive ? child.material.emissive.clone() : new THREE.Color(0);
-              child.material.emissive = new THREE.Color(0x00f0aa);
-              child.material.emissiveIntensity = 0.25;
-            } else if (child.userData.origEmissive) {
-              child.material.emissive.copy(child.userData.origEmissive);
-              child.material.emissiveIntensity = 0;
-            }
-          }
-        });
-      });
-    }
-
-    /* Raycasting for Click-to-Inspect */
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-
-    renderer.domElement.addEventListener("click", (e) => {
-      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
-
-      const intersects = raycaster.intersectObjects(pickableMeshes, true);
-      if (intersects.length > 0) {
-        let hit = intersects[0].object;
-        while (hit && !hit.userData.component) hit = hit.parent;
-        if (hit && hit.userData.component) {
-          selectComponent(hit.userData.component);
-        }
-      }
-    });
-
-    /* =========================================================================
-       6. UI INTERACTION LISTENERS & ANIMATIONS
-       ========================================================================= */
-
-    // Explode Slider Input
-    const slider = document.getElementById("explode-slider");
-    slider.addEventListener("input", (e) => {
-      updateExplodedPositions(parseFloat(e.target.value) / 100);
-    });
-
-    // Quick Explode / Assemble Toggle with TWEEN easing
-    let isExploded = false;
-    document.getElementById("btn-explode-toggle").addEventListener("click", () => {
-      const targetVal = isExploded ? 0 : 1;
-      isExploded = !isExploded;
-      document.getElementById("btn-explode-toggle").textContent = isExploded ? "Assemble" : "Quick Explode";
-
-      new TWEEN.Tween({ pct: explodeProgress })
-        .to({ pct: targetVal }, 900)
-        .easing(TWEEN.Easing.Cubic.InOut)
-        .onUpdate((obj) => updateExplodedPositions(obj.pct))
-        .start();
-    });
-
-    // Reset View Button
-    document.getElementById("btn-reset-assembly").addEventListener("click", () => {
-      new TWEEN.Tween({ pct: explodeProgress })
-        .to({ pct: 0 }, 600)
-        .easing(TWEEN.Easing.Quadratic.Out)
-        .onUpdate((obj) => updateExplodedPositions(obj.pct))
-        .start();
-
-      animateCamera([16, 13, 20], [0, 1.2, 0]);
-      isExploded = false;
-      document.getElementById("btn-explode-toggle").textContent = "Quick Explode";
-    });
-
-    // Camera Presets
-    const cameraPresets = {
-      isoExploded: { pos: [18, 14, 22], target: [0, 2.0, 0], explode: 0.85 },
-      topView: { pos: [0, 26, 0.01], target: [0, 0, 0], explode: 0.0 },
-      pcbMacro: { pos: [2, 10, 5], target: [0, 1.0, 0], explode: 0.5 },
-      sideProfile: { pos: [24, 1.5, 0], target: [0, 0, 0], explode: 0.0 }
-    };
-
-    function animateCamera(newPos, newTarget) {
-      new TWEEN.Tween(camera.position)
-        .to({ x: newPos[0], y: newPos[1], z: newPos[2] }, 1000)
-        .easing(TWEEN.Easing.Cubic.InOut)
-        .start();
-
-      new TWEEN.Tween(controls.target)
-        .to({ x: newTarget[0], y: newTarget[1], z: newTarget[2] }, 1000)
-        .easing(TWEEN.Easing.Cubic.InOut)
-        .start();
-    }
-
-    document.querySelectorAll(".cam-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".cam-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        const preset = cameraPresets[btn.dataset.preset];
-        if (preset) {
-          animateCamera(preset.pos, preset.target);
-          if (preset.explode !== undefined) {
-            new TWEEN.Tween({ pct: explodeProgress })
-              .to({ pct: preset.explode }, 800)
-              .easing(TWEEN.Easing.Cubic.InOut)
-              .onUpdate((obj) => updateExplodedPositions(obj.pct))
-              .start();
-          }
-        }
-      });
-    });
-
-    // X-Ray / Transparent Shell Mode
-    const btnXray = document.getElementById("btn-xray");
-    btnXray.addEventListener("click", () => {
-      isXray = !isXray;
-      btnXray.classList.toggle("active", isXray);
-      housingMeshes.forEach(mesh => {
-        mesh.material.transparent = isXray;
-        mesh.material.opacity = isXray ? 0.28 : 1.0;
-        mesh.material.roughness = isXray ? 0.15 : 0.65;
-        mesh.material.needsUpdate = true;
-      });
-    });
-
-    // Turntable Auto-Rotation
-    const btnTurntable = document.getElementById("btn-turntable");
-    btnTurntable.addEventListener("click", () => {
-      isTurntable = !isTurntable;
-      btnTurntable.classList.toggle("active", isTurntable);
-      controls.autoRotate = isTurntable;
-      controls.autoRotateSpeed = 2.0;
-    });
-
-    // High-Res Screenshot Export
-    document.getElementById("btn-screenshot").addEventListener("click", () => {
-      labelsContainer.style.display = "none";
-      renderer.render(scene, camera);
-      const dataURL = renderer.domElement.toDataURL("image/png");
-      labelsContainer.style.display = "block";
-
-      const link = document.createElement("a");
-      link.download = `MastitisGuard_Wearable_3D_${Date.now()}.png`;
-      link.href = dataURL;
-      link.click();
-    });
-
-    // Toggle 3D Markers
-    document.getElementById("toggle-pins").addEventListener("click", function() {
-      this.classList.toggle("active");
-      updateMarkerPinPositions();
-    });
-
-    // Toggle Datum Lines
-    document.getElementById("toggle-axes").addEventListener("click", function() {
-      this.classList.toggle("active");
-      datumLinesGroup.visible = this.classList.contains("active");
-    });
-
-    // Toggle Strap
-    document.getElementById("toggle-strap").addEventListener("click", function() {
-      this.classList.toggle("active");
-      if (partGroups["strap"]) partGroups["strap"].group.visible = this.classList.contains("active");
-    });
-
-    // Toggle Fasteners (Screws)
-    let screwsVisible = true;
-    document.getElementById("toggle-screws").addEventListener("click", function() {
-      this.classList.toggle("active");
-      screwsVisible = this.classList.contains("active");
-      // Hide or show corner screws
-      partGroups["topCover"].group.traverse(child => {
-        if (child.isMesh && child.geometry.type === "CylinderGeometry") {
-          child.visible = screwsVisible;
-        }
-      });
-      partGroups["bottomEnclosure"].group.traverse(child => {
-        if (child.isMesh && child.geometry.type === "CylinderGeometry" && child.position.y < -0.8) {
-          child.visible = screwsVisible;
-        }
-      });
-    });
-
-    // Window Resize Handler
-    window.addEventListener("resize", () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      updateMarkerPinPositions();
-    });
-
-    // Render Loop
-    function animate(time) {
-      requestAnimationFrame(animate);
-      TWEEN.update();
-      controls.update();
-      updateMarkerPinPositions();
-      renderer.render(scene, camera);
-    }
-
-    // Startup Initialization
-    window.addEventListener("DOMContentLoaded", () => {
-      initializeAssembly();
-      requestAnimationFrame(animate);
-      setTimeout(() => {
-        const loader = document.getElementById("loader");
-        loader.style.opacity = "0";
-        setTimeout(() => loader.style.display = "none", 400);
-      }, 500);
-    });
-  </script>
+<script>
+"use strict";
+(function(){
+const el=id=>document.getElementById(id);
+let scene,camera,renderer,controls,collar,station,raycaster,activeDevice=0,ex=0,xray=false,selected=null;
+const parts=[],pickable=[],streams=[],housingMeshes=[],axisGroups=[];
+const mint="#00e5a3";let cur=0,heatS,espMesh;
+const P=["#00f0aa","#38bdf8","#fbbf24","#f472b6","#a78bfa","#fb923c"];
+const modes=[
+{t:"1 · Safe Baseline",c:"#00e5a3",s:6,rs:1,hs:.14,hc:"#b58236",tel:"Rumination   445 min/day\nSkin temp    38.2 °C\nMilk pH      6.62\nYield        11.2 kg",flow:"Collar → ESP-NOW → gateway → personal baseline",say:"Safe baseline. All four channels stay close to this cow's own reference. No action is needed. Illustrative data, not a diagnosis."},
+{t:"2 · Moderate Risk · Day −5",c:"#ffb84d",s:38,rs:.55,hs:.25,hc:"#ffb84d",tel:"Rumination   365 min/day ↓\nSkin temp    38.3 °C\nMilk pH      6.69\nYield        10.8 kg",flow:"Rumination drop → persistence filter → early flag",say:"Moderate risk, illustrative day minus five. Rumination falls before any visible milk change. Run a CMT test and call the veterinarian."},
+{t:"3 · High Risk · Day −3",c:"#fb923c",s:68,rs:.3,hs:.43,hc:"#fb923c",tel:"Rumination   310 min/day ↓↓\nSkin temp    38.9 °C ↑↑\nMilk pH      6.88 ↑\nYield        9.8 kg ↓",flow:"Behaviour + heat + alkaline milk → corroborated alert",say:"High risk, illustrative day minus three. Behaviour, temperature, milk chemistry and yield all drift together. Arrange veterinary review and collect a sterile quarter sample."},
+{t:"4 · Critical · Day 0",c:"#ff4d6d",s:89,rs:.06,hs:.7,hc:"#ff4d6d",tel:"Rumination   275 min/day ↓↓↓\nSkin temp    39.4 °C ↑↑↑\nMilk pH      7.18 ↑↑↑\nYield        8.2 kg ↓↓↓",flow:"Visible clots + yield loss → urgent veterinary care",say:"Critical, illustrative day zero. Visible milk changes and marked yield loss need immediate veterinary attention. Do not delay care."}];
+const ORDER=[["lid","screws","gasket","gps","pcb","imu","thermal","charger","battery","chassis","strap"],["stationLid","camera","signal","ph","probe","load","body"]];
+const E=(t,fn,why,feat)=>({t,fn,why,feat});
+const D={
+lid:E("Top Cover","Protects the electronics. Its top panel carries the cow's unique ID label (barcode / QR scanner code).","First defence against knocks, water and dirt on the cow's neck.","Grey ABS/PC · 4 screw sockets · Cow Unique ID label"),
+screws:E("M3 Screws","Clamp lid, gasket and base together.","Even clamping keeps the seal tight.","4× stainless socket-cap · M3"),
+gasket:E("Sealing Gasket","Seals the joint between lid and base.","Keeps slurry, saliva and wash water out.","One continuous ring · silicone/neoprene"),
+gps:E("GPS Antenna","Gives each cow's location.","Optional context; not used to detect mastitis.","NEO-6M · ceramic patch · under the lid"),
+pcb:E("Main PCB","Runs the firmware, reads sensors and sends data by ESP-NOW.","It is the brain of the collar.","ESP32 · 77 × 81 mm · H14_Spirit silkscreen"),
+imu:E("MPU6050 Motion Sensor","Senses jaw movement to count rumination.","Less rumination is an early sign of mastitis.","6-axis · low power · on main PCB"),
+thermal:E("MAX30205 Temp Pad","Measures skin temperature at the dewlap.","A temperature rise supports the alert.","Digital sensor · gold contact disc"),
+charger:E("TP4056 Charger","Charges the battery over USB.","Farmer can recharge without opening the case.","USB port · charge / done LEDs"),
+battery:E("18650 Battery","Powers the whole collar.","Low-power design aims for months between charges.","3.7 V Li-ion · rubber cradle"),
+chassis:E("Bottom Enclosure","Holds all parts and faces the animal.","Gives structure, strap mount and the sensor window.","Matte ABS/PC · strap loops · front pad opening"),
+strap:E("Collar Strap","Holds the device on the neck.","Fit and contact decide reading quality and comfort.","Heavy webbing · grip pads · metal buckle"),
+stationLid:E("Cover Plate","Closes the milk station.","Protects the boards during wash-down.","Brushed stainless · etched label"),
+camera:E("ESP32-CAM","Reads the cow's ear tag and runs the station.","Links every reading to the right cow.","Camera · ESP32 · faces the stall entrance"),
+signal:E("Signal Board","Cleans the weak pH and weight signals.","Clean signals give reliable readings.","pH front end · HX711 link · 6 terminals"),
+ph:E("pH Probe","Measures milk pH.","Milk turns more alkaline during inflammation.","Flow-through glass · BNC · needs calibration"),
+probe:E("Temp Probe","Measures milk temperature.","Needed to correct the pH reading.","DS18B20 · stainless sheath"),
+load:E("Load Cell","Weighs the milk each session.","A drop in yield is a key mastitis signal.","S-type cell · HX711 · needs supported vessel"),
+body:E("Station Enclosure","Houses the sensors and the milk path.","Hygienic, washable, shared by many cows.","Brushed stainless · 2 side ports · rubber feet")};
+const byId=d=>ORDER[d].slice().sort((a,b)=>bom[a].id.localeCompare(bom[b].id));
+const costTxt=c=>"("+c+" · "+(/^₹/.test(c)?"estimate, ":"")+"not a final price)";
+const NODE=[{c:"#00f0aa",n:"WEARABLE NODE · 1 per cow · 11 parts",sub:"Wearable node · one per cow"},{c:"#38bdf8",n:"MILK STATION NODE · shared · 7 parts",sub:"Milk station · shared by cows"}];
+
+const bom = {
+ strap:{name:"Heavy-duty collar strap & buckle",id:"MG-W01",cost:"₹185",
+  caveat:"Reference-style black webbing and metal buckle. Verify breakaway safety, fit, chafing, cleanability and dewlap contact under animal movement."},
+ chassis:{name:"Bottom enclosure chassis",id:"MG-W02",cost:"₹480",
+  caveat:"SLA/FDM or CNC prototype with strap slots and contact-pad opening. Matte ABS/PC appearance represents Phase 2 injection molding. Rendered sealing does not establish an IP rating."},
+ battery:{name:"18650 energy storage core",id:"MG-W03",cost:"₹220",
+  caveat:"1.8 cm diameter × 6.5 cm cell, sleeved with cradle. Protected cell, pack fuse, retention, charging safety and measured duty-cycle autonomy require verification."},
+ charger:{name:"TP4056 charging / PMIC board",id:"MG-W04",cost:"₹35",
+  caveat:"Charging breakout with USB port. TP4056 charging alone does not guarantee battery protection or power-path management. Validate heat dissipation and moisture-safe charging."},
+ thermal:{name:"MAX30205 dermal contact pad",id:"MG-W05",cost:"₹180",
+  caveat:"Gold contact disc is concept geometry. Sensor placement, contact pressure and insulation affect dewlap readings. Skin temperature is not core temperature; ambient and contact artifacts need validation."},
+ pcb:{name:"Main compute & reference-layout PCB",id:"MG-W06",cost:"₹560 PCB assembly",
+  caveat:"Green FR4 board with ESP32 RF shield and trace antenna. PCB artwork follows supplied portrait footprint topology. The 77 × 81 mm reference footprint guides proportions over the conflicting 95 × 65 mm text size. Routing is visual reconstruction, not fabrication Gerber data."},
+ imu:{name:"MPU6050 six-axis IMU",id:"MG-W07",cost:"₹130",
+  caveat:"Reference lower-left footprint. Jaw-motion inference needs placement studies, labeled rumination observations and motion-artifact rejection. Animated stream speed is illustrative, not proportional to daily minutes."},
+ gps:{name:"NEO-6M ceramic GPS patch module",id:"MG-W08",cost:"₹420",
+  caveat:"Tan ceramic patch above the lower-right reference footprint. GPS is optional context, not a mastitis channel. Assess indoor reception, power draw and RF keep-outs."},
+ gasket:{name:"Continuous environmental gasket",id:"MG-W09",cost:"Not yet confirmed",
+  caveat:"Continuous rectangular silicone/neoprene ring. Gland compression, tongue-and-groove tolerance, material compatibility and ingress performance require tests."},
+ lid:{name:"Protective top housing lid",id:"MG-W10",cost:"₹480",
+  caveat:"Grey reference-style housing with recessed screw sockets and label. Prototype: SLA/FDM/CNC. Phase 2: injection-molded ABS/PC. Cutaway opacity is a visualization aid."},
+ screws:{name:"Four M3 socket-cap fasteners",id:"MG-W11",cost:"Not yet confirmed",
+  caveat:"Illustrated 304 stainless Allen cap bolts. Confirm insert design, clamp load, torque, corrosion compatibility and screw retention."},
+ body:{name:"Shared-station stainless enclosure",id:"MG-S01",cost:"Not separately itemized",
+  caveat:"Brushed stainless concept with opposing fluid ports. Enclosure, seals, fittings and food-contact finish are not reconciled into the ₹2,110 shared-station target."},
+ stationLid:{name:"Station stainless cover plate",id:"MG-S02",cost:"Not separately itemized",
+  caveat:"Laser-etch-style nomenclature. Verify washdown sealing, hygienic access and electrical separation; cutaway is not an opening in the manufactured housing."},
+ load:{name:"S-type load-cell manifold + HX711",id:"MG-S03",cost:"₹280",
+  caveat:"HX711 is the bridge ADC, not the load-cell element. Session weighing requires a supported receiving vessel, tare, vibration isolation and no bypass load paths. An inline tube alone cannot measure total milk mass."},
+ probe:{name:"DS18B20 stainless thermal probe",id:"MG-S04",cost:"₹120",
+  caveat:"Inline process-temperature context; food-contact probe construction and cleaning compatibility require verification. It does not replace dewlap contact temperature."},
+ ph:{name:"Flow-through glass BNC pH assembly",id:"MG-S05",cost:"₹650",
+  caveat:"Inline glass pH probes suffer from protein and milk-fat coating drift and mandate regular buffer calibration. Validate temperature compensation, cleaning, storage, response time and food-contact materials."},
+ signal:{name:"Lower signal-conditioning PCB",id:"MG-S06",cost:"Not separately itemized",
+  caveat:"Blue terminal blocks, high-impedance pH front end and HX711 interface. Moisture leakage and electrical noise can dominate pH measurements. A hardware design and calibration plan are required."},
+ camera:{name:"ESP32-CAM station processing board",id:"MG-S07",cost:"₹450",
+  caveat:"Camera faces the concept stall entrance for ear-tag association. Optical identity needs local validation for lighting, dirt, motion and tag visibility. Uncertain identity must require confirmation rather than joining the wrong cow record."}
+};
+function material(color, metalness=0, roughness=.6){
+ return new THREE.MeshStandardMaterial({color,metalness,roughness});
+}
+function box(parent,w,h,d,x,y,z,mat){
+ const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+ mesh.position.set(x,y,z);parent.add(mesh);return mesh;
+}
+function cylinder(parent,r,h,x,y,z,mat,segments=32){
+ const mesh=new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,segments),mat);
+ mesh.position.set(x,y,z);parent.add(mesh);return mesh;
+}
+function sphere(parent,r,x,y,z,mat){
+ const mesh=new THREE.Mesh(new THREE.SphereGeometry(r,12,8),mat);
+ mesh.position.set(x,y,z);parent.add(mesh);return mesh;
+}
+function linePath(parent,points,color,widthOpacity=1){
+ const geometry=new THREE.BufferGeometry().setFromPoints(points.map(p=>new THREE.Vector3(...p)));
+ const line=new THREE.Line(geometry,new THREE.LineBasicMaterial({color,transparent:widthOpacity<1,opacity:widthOpacity}));
+ parent.add(line);return line;
+}
+function roundedBox(parent,w,h,d,r,x,y,z,mat){
+ const group=new THREE.Group();group.position.set(x,y,z);parent.add(group);
+ box(group,w-2*r,h,d,0,0,0,mat);
+ box(group,w,h,d-2*r,0,0,0,mat);
+ for(const sx of [-1,1])for(const sz of [-1,1])
+  cylinder(group,r,h,sx*(w/2-r),0,sz*(d/2-r),mat);
+ return group;
+}
+function rectangularRing(parent,w,d,t,h,y,mat){
+ const g=new THREE.Group();g.position.y=y;parent.add(g);
+ box(g,w-2*t,h,t,0,0,-d/2+t/2,mat);
+ box(g,w-2*t,h,t,0,0,d/2-t/2,mat);
+ box(g,t,h,d,t/2-w/2,0,0,mat);
+ box(g,t,h,d,w/2-t/2,0,0,mat);
+ return g;
+}
+function annulus(parent,outer,inner,height,x,y,z,mat){
+ const g=new THREE.Group();g.position.set(x,y,z);parent.add(g);
+ const ring=new THREE.Mesh(new THREE.RingGeometry(inner,outer,32),
+  new THREE.MeshStandardMaterial({color:mat.color,metalness:mat.metalness,roughness:mat.roughness,side:THREE.DoubleSide}));
+ ring.rotation.x=-Math.PI/2;ring.position.y=height/2;g.add(ring);
+ const side=new THREE.Mesh(new THREE.CylinderGeometry(outer,outer,height,32,1,true),mat);
+ g.add(side);
+ return g;
+}
+function canvasTexture(draw,w=1024,h=512){
+ const canvas=document.createElement("canvas");canvas.width=w;canvas.height=h;
+ draw(canvas.getContext("2d"),w,h);
+ const texture=new THREE.CanvasTexture(canvas);texture.encoding=THREE.sRGBEncoding;
+ texture.anisotropy=renderer.capabilities.getMaxAnisotropy();
+ return texture;
+}
+function textTexture(lines,bg="#182c3d",fg="#eef6fb",w=1024,h=256){
+ return canvasTexture((ctx,cw,ch)=>{
+  ctx.fillStyle=bg;ctx.fillRect(0,0,cw,ch);
+  ctx.strokeStyle=fg;ctx.globalAlpha=.35;ctx.lineWidth=4;ctx.strokeRect(12,12,cw-24,ch-24);ctx.globalAlpha=1;
+  ctx.fillStyle=fg;ctx.textAlign="center";ctx.textBaseline="middle";
+  lines.forEach((text,i)=>{
+   ctx.font=(i===0?"bold ":"")+Math.min(ch/(lines.length+1),cw/(text.length*.64))+"px Arial";
+   ctx.fillText(text,cw/2,ch*(i+.5)/lines.length,cw-40);
+  });
+ },w,h);
+}
+function label(parent,lines,w,d,x,y,z,bg="#182c3d",fg="#eef6fb"){
+ const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,d),
+  new THREE.MeshBasicMaterial({map:textTexture(lines,bg,fg),side:THREE.DoubleSide}));
+ mesh.rotation.x=-Math.PI/2;mesh.position.set(x,y,z);parent.add(mesh);return mesh;
+}
+function newPart(parent,key,restY,explodedY,x=0,z=0){
+ const group=new THREE.Group();group.position.set(x,restY,z);parent.add(group);
+ const entry={group,key,restY,explodedY,meshes:[],device:parent===collar?0:1};
+ parts.push(entry);group.userData.part=entry;return entry;
+}
+function registerParts(){
+ parts.forEach(part=>{
+  part.group.traverse(object=>{
+   if(!object.isMesh)return;
+   let ancestor=object;
+   while(ancestor&&!ancestor.userData.part)ancestor=ancestor.parent;
+   if(!ancestor||ancestor.userData.part!==part)return;
+   object.userData.part=part;
+   if(object.material.emissive){
+    object.material=object.material.clone();
+    object.userData.originalEmissive=object.material.emissive.clone();
+    part.meshes.push(object);
+   }
+   pickable.push(object);
+  });
+ });
+}
+function markHousing(group){
+ group.traverse(obj=>{
+  if(!obj.isMesh)return;
+  if(!Array.isArray(obj.material)){
+   obj.material=obj.material.clone();
+   housingMeshes.push(obj);
+  }
+ });
+}
+function makeAxes(parent,x,z){
+ const group=new THREE.Group();parent.add(group);
+ for(const sx of [-1,1])for(const sz of [-1,1]){
+  const geometry=new THREE.BufferGeometry().setFromPoints([
+   new THREE.Vector3(sx*x,-6.5,sz*z),new THREE.Vector3(sx*x,13,sz*z)
+  ]);
+  const line=new THREE.Line(geometry,new THREE.LineDashedMaterial({color:0x6da4ba,dashSize:.25,gapSize:.22,transparent:true,opacity:.5}));
+  line.computeLineDistances();group.add(line);
+ }
+ group.visible=false;axisGroups.push(group);
+}
+
+/* Reconstruct the portrait PCB reference in a procedural canvas, including trace topology. */
+function pcbReferenceTexture(){
+ return canvasTexture((ctx,w,h)=>{
+  ctx.fillStyle="#16472c";ctx.fillRect(0,0,w,h);
+  const X=v=>v*w/770,Y=v=>v*h/810;
+  function route(points,color,width){
+   ctx.strokeStyle=color;ctx.lineWidth=width*w/770;ctx.lineJoin="round";
+   ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();
+  }
+  const routes=[
+   [[72,100],[150,100],[228,35],[540,35],[610,105],[610,340],[660,385],[660,470],[615,510],[615,725]],
+   [[70,180],[145,242],[145,310],[180,345],[320,345],[350,375],[495,375],[550,425],[550,485],[220,485],[170,445]],
+   [[320,90],[340,110],[340,300],[305,330],[305,390],[375,390]],
+   [[495,90],[460,110],[460,240],[500,280],[555,280],[555,230]],
+   [[120,620],[150,665],[150,735],[90,770],[30,730],[30,225],[100,225]],
+   [[175,695],[235,625],[235,175],[270,115],[285,80]],
+   [[620,355],[590,390],[590,565],[640,610],[640,750]],
+   [[72,100],[45,160],[45,465],[225,465],[260,430],[260,70],[280,55],[535,55],[575,95]]
+  ];
+  routes.forEach((r,i)=>route(r,i%2?"#b9a44e":"#538570",5));
+  route([[105,323],[130,352],[275,352],[306,370],[468,370],[497,335]],"#c5ac52",7);
+  ctx.strokeStyle="#d7e8d4";ctx.lineWidth=1.3;
+  [[295,80,185,190],[65,285,160,200],[265,350,220,145],[65,555,130,200],[257,523,355,247]].forEach(r=>ctx.strokeRect(X(r[0]),Y(r[1]),X(r[2]),Y(r[3])));
+  function pad(x,y,r=7){
+   ctx.fillStyle="#e2d356";ctx.beginPath();ctx.arc(X(x),Y(y),X(r),0,Math.PI*2);ctx.fill();
+   ctx.fillStyle="#578979";ctx.beginPath();ctx.arc(X(x),Y(y),X(r*.53),0,Math.PI*2);ctx.fill();
+  }
+  for(let i=0;i<8;i++){pad(310,92+i*23);pad(467,92+i*23);pad(180,570+i*24)}
+  for(let i=0;i<8;i++)pad(281+i*26,370);
+  for(let i=0;i<4;i++)pad(595,600+i*29);
+  [[82,100],[82,180]].forEach(p=>pad(...p,14));
+  [[105,305],[131,305],[158,305],[120,470],[145,470]].forEach(p=>pad(...p));
+  [[85,575],[85,736],[280,545],[590,545],[280,744],[590,744]].forEach(p=>{
+   ctx.fillStyle="#929eac";ctx.beginPath();ctx.arc(X(p[0]),Y(p[1]),X(13),0,Math.PI*2);ctx.fill();
+  });
+  ctx.fillStyle="#e9f1df";ctx.font="19px monospace";ctx.textAlign="center";
+  [["U2",390,68],["U1",145,390],["MAX30205",380,448],["MPU6050",130,785],["NEO6MS1",437,644],["J2",83,70],["R1",625,185],["R2",625,410],["C1",552,287]].forEach(t=>ctx.fillText(t[0],X(t[1]),Y(t[2])));
+  ctx.font="bold 26px Arial";ctx.fillText("H14_Spirit",X(651),Y(41));
+  ctx.strokeStyle="#e5f0df";ctx.strokeRect(X(559),Y(12),X(193),Y(39));
+  ctx.font="italic 21px Georgia";ctx.fillText("Spirit",X(665),Y(84));
+ },1024,1080);
+}
+
+function buildCollar(){
+ const black=material("#151a20",.12,.84), rubber=material("#090d12",0,.95);
+ const gray=material("#596169",.22,.56), silver=material("#c8d2db",.86,.27);
+ const gold=material("#ceb869",.72,.29), green=material("#174f32",.12,.68);
+ const blue=material("#174886",.18,.45), chip=material("#141820",.22,.48);
+
+ /* Strap and buckle remain at the datum. Visual finish follows the wearable render. */
+ const strap=newPart(collar,"strap",0,0);
+ const weave=canvasTexture((ctx,w,h)=>{
+  ctx.fillStyle="#171c21";ctx.fillRect(0,0,w,h);
+  for(let y=0;y<h;y+=8)for(let x=0;x<w;x+=7){
+   ctx.fillStyle=(x+y)%3?"#242b30":"#11171c";ctx.fillRect(x,y,3,5);
+  }
+ },256,256);
+ weave.wrapS=weave.wrapT=THREE.RepeatWrapping;weave.repeat.set(2,9);
+ const webbing=new THREE.MeshStandardMaterial({color:"#62676d",map:weave,roughness:.94});
+ roundedBox(strap.group,4.5,.35,24,.3,0,-.15,0,webbing);
+ for(const z of [-8,-9,-10,8,9,10]){
+  roundedBox(strap.group,2.7,.055,.36,.16,0,.055,z,rubber);
+ }
+ rectangularRing(strap.group,5.2,2,.3,.45,.12,silver).position.z=9.6;
+ box(strap.group,.18,.22,1.7,0,.47,9.5,silver);
+
+ const base=newPart(collar,"chassis",-1,-5);
+ /* Split base plates leave an actual contact-pad aperture near the front edge. */
+ box(base.group,8.4,.30,7.4,0,0,-1.1,black);
+ box(base.group,2.6,.30,2.2,-2.9,0,3.7,black);
+ box(base.group,2.6,.30,2.2,2.9,0,3.7,black);
+ box(base.group,3.2,.30,.45,0,0,4.575,black);
+ rectangularRing(base.group,8.4,9.6,.32,1.6,.70,black);
+ for(const z of [-5.35,5.35]){
+  const loop=rectangularRing(base.group,5.1,1.2,.28,.58,.7,black);
+  loop.position.z=z;
+ }
+ for(const x of [-3.65,3.65])for(const z of [-4.2,4.2])
+  annulus(base.group,.40,.16,1.30,x,.5,z,black);
+ markHousing(base.group);
+
+ const battery=newPart(collar,"battery",0,-2.5,0,-.7);
+ const cell=cylinder(battery.group,.90,6.5,0,0,0,blue);cell.rotation.z=Math.PI/2;
+ for(const x of [-3.29,3.29]){
+  const end=cylinder(battery.group,.76,.09,x,0,0,silver);end.rotation.z=Math.PI/2;
+ }
+ const band=cylinder(battery.group,.912,2.8,0,0,0,material("#d9dde2",.1,.56));band.rotation.z=Math.PI/2;
+ label(battery.group,["18650 Li-ion","3.7 V · protected pack"],3.4,.95,0,.923,0,"#e7ebef","#202a34");
+ for(const x of [-2.55,2.55]){
+  box(battery.group,.45,.3,2.25,x,-.84,0,rubber);
+  box(battery.group,.45,1.2,.28,x,-.35,1.03,rubber);
+  box(battery.group,.45,1.2,.28,x,-.35,-1.03,rubber);
+ }
+ linePath(battery.group,[[3.3,0,0],[3.6,.15,.3],[3.6,.4,1.5],[2.5,.4,1.8]],"#cf3b3b");
+ linePath(battery.group,[[3.3,-.2,0],[3.8,0,.3],[3.8,.25,1.7],[2.5,.25,1.9]],"#161b21");
+
+ const charger=newPart(collar,"charger",.5,-1,-2.15,2.1);
+ box(charger.group,2.2,.13,1.5,0,0,0,blue);
+ box(charger.group,.8,.28,.62,-.7,.2,0,silver);
+ box(charger.group,.06,.12,.40,-1.115,.22,0,chip);
+ box(charger.group,.5,.13,.5,.25,.13,0,chip);
+ sphere(charger.group,.07,.7,.15,.43,material("#ff4d6d"));
+ sphere(charger.group,.07,.7,.15,-.43,material("#00e5a3"));
+
+ const thermal=newPart(collar,"thermal",-1.2,.4,0,3.45);
+ box(thermal.group,1.65,.12,1.65,0,0,0,green);
+ cylinder(thermal.group,.58,.25,0,-.10,0,gold);
+ cylinder(thermal.group,.53,.04,0,-.245,0,gold);
+ box(thermal.group,.4,.12,.4,0,.1,0,chip);
+ label(thermal.group,["MAX30205"],1.5,.35,0,.18,.54,"#16472c","#eef4d8");
+
+ const pcb=newPart(collar,"pcb",1.2,2.5);
+ box(pcb.group,7.7,.16,8.1,0,0,0,green);
+ const artwork=new THREE.Mesh(new THREE.PlaneGeometry(7.7,8.1),
+  new THREE.MeshStandardMaterial({map:pcbReferenceTexture(),roughness:.78,metalness:.12}));
+ artwork.rotation.x=-Math.PI/2;artwork.position.y=.087;pcb.group.add(artwork);
+
+ /* Upper U2 / ESP32, middle thermal footprint, lower-left IMU, lower-right GPS. */
+ box(pcb.group,1.85,.15,2.4,-.0,.18,-2.20,chip);
+ espMesh=box(pcb.group,1.52,.28,1.45,-.0,.39,-2.32,silver);
+ label(pcb.group,["ESP32","ESP-NOW"],1.28,.85,0,.538,-2.32,"#99a6ad","#25343b");
+ const antennaPoints=[];
+ for(let i=0;i<9;i++){
+  const x=-.69+i*.17;
+  antennaPoints.push([x,.28,-3.38],[x,.28,i%2?-2.98:-3.58]);
+ }
+ linePath(pcb.group,antennaPoints,"#d8bd76");
+ for(const x of [-.85,.85])for(let i=0;i<8;i++){
+  box(pcb.group,.13,.28,.13,x,.26,-3.15+i*.23,gold);
+ }
+ for(let i=0;i<8;i++)
+  annulus(pcb.group,.074,.035,.02,-1.04+i*.26,.12,-.35,gold);
+
+ const imu=newPart(collar,"imu",1.2,2.5,-2.62,2.35);
+ box(imu.group,1.20,.13,1.65,0,.17,0,green);
+ box(imu.group,.52,.15,.52,-.08,.3,0,chip);
+ label(imu.group,["MPU6050"],1.05,.29,0,.32,.59,"#174f32","#e0ecd3");
+ for(let i=0;i<7;i++)box(imu.group,.11,.23,.11,.48,.27,-.65+i*.2,gold);
+
+ /* Reference-like axial passives on the right edge. */
+ for(const z of [-2.22,.0]){
+  const resistor=cylinder(pcb.group,.10,.7,2.37,.25,z,material("#cfb781",.1,.55));
+  resistor.rotation.x=Math.PI/2;
+  for(const offset of [-.43,.43])
+   box(pcb.group,.045,.045,.22,2.37,.23,z+offset,silver);
+ }
+ sphere(pcb.group,.12,1.73,.26,-1.15,material("#b6772a"));
+ for(let i=0;i<12;i++){
+  box(pcb.group,.18,.12,.10,-2.85+(i%4)*.31,.16,-1.65+Math.floor(i/4)*.32,
+   i%3?chip:silver);
+ }
+ for(const x of [-3.5,3.5])for(const z of [-3.72,3.72])
+  annulus(pcb.group,.15,.075,.045,x,.12,z,gold);
+
+ const gps=newPart(collar,"gps",2,4.5,.72,2.25);
+ box(gps.group,2.1,.13,2.05,0,0,0,green);
+ box(gps.group,1.92,.15,1.9,0,.13,0,gold);
+ roundedBox(gps.group,1.8,.28,1.8,.08,0,.34,0,material("#d5c6a0",.3,.55));
+ cylinder(gps.group,.075,.025,0,.49,0,silver);
+ label(gps.group,["NEO-6M"],1.25,.35,0,.49,.48,"#d5c6a0","#655941");
+
+ const gasket=newPart(collar,"gasket",2.4,6.5);
+ rectangularRing(gasket.group,8.2,9.4,.19,.19,0,rubber);
+
+ const lid=newPart(collar,"lid",2.7,9);
+ roundedBox(lid.group,8.5,.58,9.7,.65,0,0,0,gray);
+ rectangularRing(lid.group,8.25,9.45,.19,.5,-.36,gray);
+ rectangularRing(lid.group,6.65,7.65,.07,.055,.313,material("#3a424a",.15,.7));
+ {const idTex=canvasTexture((ctx,w,h)=>{
+  ctx.fillStyle="#47515a";ctx.fillRect(0,0,w,h);
+  ctx.strokeStyle="#edf3f6";ctx.globalAlpha=.35;ctx.lineWidth=4;ctx.strokeRect(10,10,w-20,h-20);ctx.globalAlpha=1;
+  ctx.textAlign="center";ctx.textBaseline="middle";
+  ctx.fillStyle="#ffffff";ctx.font="bold 96px Arial";ctx.fillText("Cow Unique ID",w/2,h*.40,w-80);
+  ctx.fillStyle="#cfe3ea";ctx.font="500 50px Arial";ctx.fillText("(Barcode Label / QR Scanner Code)",w/2,h*.72,w-80);
+ },1120,310);
+ const idMesh=new THREE.Mesh(new THREE.PlaneGeometry(5.6,1.55),new THREE.MeshBasicMaterial({map:idTex,side:THREE.DoubleSide}));
+ idMesh.rotation.x=-Math.PI/2;idMesh.position.set(0,.326,0);lid.group.add(idMesh);}
+ for(const x of [-3.65,3.65])for(const z of [-4.2,4.2]){
+  cylinder(lid.group,.33,.035,x,.31,z,rubber);
+  annulus(lid.group,.40,.23,.085,x,.32,z,silver);
+ }
+ for(const x of [-4.19,4.19])for(const z of [-2.55,2.55])
+  roundedBox(lid.group,.15,.24,1.8,.06,x,-.13,z,black);
+ markHousing(lid.group);
+
+ const screws=newPart(collar,"screws",3.2,11.5);
+ for(const x of [-3.65,3.65])for(const z of [-4.2,4.2]){
+  cylinder(screws.group,.11,1,x,-.48,z,silver);
+  cylinder(screws.group,.235,.20,x,.09,z,silver);
+  cylinder(screws.group,.105,.012,x,.197,z,chip,6);
+  for(let k=0;k<7;k++)cylinder(screws.group,.13,.034,x,-.87+k*.105,z,silver,12);
+ }
+ makeAxes(collar,3.65,4.2);
+}
+
+/* Reusable tube-and-particle stream. */
+function createStream(parent,pointsArray,color,speedFn,count,radius){
+ const curve=new THREE.CatmullRomCurve3(pointsArray.map(p=>new THREE.Vector3(...p)));
+ const coreMat=new THREE.MeshBasicMaterial({color,transparent:true,opacity:.15,depthWrite:false});
+ const core=new THREE.Mesh(new THREE.TubeGeometry(curve,64,radius*.46,8,false),coreMat);
+ parent.add(core);
+ const beadMat=new THREE.MeshBasicMaterial({color,transparent:true,opacity:.88,depthWrite:false});
+ const beadGeo=new THREE.SphereGeometry(radius,10,8),particles=[];
+ for(let i=0;i<count;i++){
+  const bead=new THREE.Mesh(beadGeo,beadMat);parent.add(bead);particles.push(bead);
+ }
+ const stream={lut:curve.getSpacedPoints(256),parent,curve,core,coreMat,beadMat,particles,speedFn,count};
+ streams.push(stream);return stream;
+}
+function buildStation(){
+ const steel=material("#acbec9",.85,.25),dark=material("#202e38",.55,.4);
+ const green=material("#155942",.14,.62), blue=material("#216ca0",.2,.45);
+ const gold=material("#c4ad6d",.72,.3), chip=material("#111921",.15,.45);
+ const body=newPart(station,"body",-1,-5);
+ roundedBox(body.group,11,.35,8,.38,0,0,0,steel);
+ rectangularRing(body.group,11,8,.22,3.3,1.8,steel);
+ for(const x of [-6,6]){
+  const port=cylinder(body.group,.65,1.85,x,1.6,0,steel);port.rotation.z=Math.PI/2;
+  const bore=cylinder(body.group,.47,.035,x+(x>0?.94:-.94),1.6,0,dark);bore.rotation.z=Math.PI/2;
+ }
+ for(const x of [-4.7,4.7])for(const z of [-3.2,3.2])
+  cylinder(body.group,.32,.5,x,-.4,z,dark);
+ markHousing(body.group);
+
+ const load=newPart(station,"load",-.25,-2.8,0,.0);
+ box(load.group,8,.25,3,0,0,0,steel);
+ box(load.group,2.8,.25,1.0,0,.37,0,steel);
+ box(load.group,2.8,.25,1.0,0,1.05,0,steel);
+ box(load.group,.36,.5,1,-1.2,.71,0,steel);
+ box(load.group,.36,.5,1,1.2,.05,0,steel);
+ box(load.group,1.1,.08,.75,2.4,.22,.95,green);
+ label(load.group,["HX711"],.88,.5,2.4,.27,.95,"#155942","#edf7ee");
+ label(load.group,["S-TYPE · SESSION MASS"],3,.5,0,1.19,0,"#a9bac5","#1e3545");
+ const fluidGlass=new THREE.MeshPhysicalMaterial({color:"#b5dde8",metalness:0,roughness:.13,transparent:true,opacity:.25,depthWrite:false});
+ const fluid=cylinder(load.group,.46,8.2,0,.6,-.95,fluidGlass);fluid.rotation.z=Math.PI/2;
+
+ const probe=newPart(station,"probe",.55,-.4,2.5,-.95);
+ const shaft=cylinder(probe.group,.11,2,0,.20,0,steel);shaft.rotation.z=Math.PI/2;
+ cylinder(probe.group,.26,.42,.72,.43,0,dark);
+ linePath(probe.group,[[.72,.65,0],[1,.9,.5],[1.3,.7,1.2]],"#7794a6");
+
+ const ph=newPart(station,"ph",.70,1.6,-2,-.95);
+ const glass=new THREE.MeshPhysicalMaterial({color:"#c4e8ef",roughness:.12,transparent:true,opacity:.45,depthWrite:false});
+ const tube=cylinder(ph.group,.21,2.65,0,.1,0,glass);tube.rotation.z=Math.PI/2;
+ sphere(ph.group,.23,1.28,.10,0,glass);
+ const bnc=cylinder(ph.group,.33,.6,-1.35,.10,0,gold);bnc.rotation.z=Math.PI/2;
+ const insulator=cylinder(ph.group,.27,.5,-.83,.10,0,chip);insulator.rotation.z=Math.PI/2;
+ label(ph.group,["GLASS pH · CALIBRATE"],3,.5,0,.47,.1,"#263446","#d9b9ff");
+
+ const signal=newPart(station,"signal",1.25,3.7,0,1.75);
+ box(signal.group,7.8,.15,2.0,0,0,0,green);
+ for(let i=0;i<6;i++){
+  box(signal.group,.65,.48,.65,-2.5+i*.83,.32,.3,blue);
+  cylinder(signal.group,.1,.025,-2.5+i*.83,.57,.3,steel);
+ }
+ for(const x of [-2,0,2])box(signal.group,.7,.15,.42,x,.15,-.42,chip);
+ label(signal.group,["pH FRONT END / HX711"],4,.4,0,.12,-.77,"#155942","#e9f5ec");
+
+ const compute=newPart(station,"camera",2.10,6.1,.6,-.8);
+ box(compute.group,5.8,.15,3,0,0,0,green);
+ box(compute.group,1.8,.15,2.5,-.65,.18,0,chip);
+ box(compute.group,1.45,.24,1.25,-.65,.36,-.35,steel);
+ const cameraHead=new THREE.Group();cameraHead.position.set(1.25,.36,.85);cameraHead.rotation.x=Math.PI/3;compute.group.add(cameraHead);
+ box(cameraHead,1.1,.24,1.1,0,0,0,chip);
+ cylinder(cameraHead,.4,.42,0,.29,0,dark);
+ cylinder(cameraHead,.27,.025,0,.512,0,material("#1b6686",.7,.16));
+ for(let i=0;i<9;i++)box(compute.group,.11,.22,.11,-1.55+i*.28,.23,1.05,gold);
+ label(compute.group,["ESP32-CAM"],2,.45,-.55,.2,-1.13,"#155942","#e9f5ec");
+
+ const lid=newPart(station,"stationLid",2.8,9);
+ roundedBox(lid.group,11.15,.30,8.15,.36,0,0,0,steel);
+ label(lid.group,["MastitisGuard AI","SHARED MILKING NODE · H14_Spirit"],7.8,1.75,0,.157,0,"#a8b9c5","#344c5f");
+ for(const x of [-4.65,4.65])for(const z of [-3.3,3.3]){
+  cylinder(lid.group,.19,.10,x,.2,z,dark);
+  cylinder(lid.group,.09,.012,x,.257,z,steel,6);
+ }
+ markHousing(lid.group);
+ makeAxes(station,4.65,3.3);
+
+ const milk=createStream(load.group,[[-8,.6,-.95],[-4,.6,-.95],[0,.6,-.95],[4,.6,-.95],[8,.6,-.95]],"#b5e6ce",()=>.17,15,.10);
+ milk.channel="milk";
+}
+function makeBillboard(parent,lines,w,h,x,y,z){
+ const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:textTexture(lines,"#102b29","#9dfbda"),depthWrite:false}));
+ sprite.scale.set(w,h,1);sprite.position.set(x,y,z);parent.add(sprite);return sprite;
+}
+function visibleInTree(o){while(o){if(!o.visible)return false;o=o.parent}return true}
+function buildScene(){
+ const host=el("canvas-container");
+ scene=new THREE.Scene();scene.background=new THREE.Color(0x070b12);scene.fog=new THREE.FogExp2(0x070b12,.011);
+ camera=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.1,180);camera.position.set(17,13,21);
+ renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+ renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));renderer.setSize(innerWidth,innerHeight);
+ renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
+ host.appendChild(renderer.domElement);
+ controls=new THREE.OrbitControls(camera,renderer.domElement);
+ controls.enableDamping=true;controls.dampingFactor=.05;controls.minDistance=8;controls.maxDistance=60;controls.target.set(0,1.5,0);
+ scene.add(new THREE.AmbientLight(0x243b55,.9));
+ const key=new THREE.DirectionalLight(0xfff7ed,1.8);key.position.set(15,24,12);scene.add(key);
+ const fill=new THREE.DirectionalLight(0x38bdf8,1);fill.position.set(-18,10,-12);scene.add(fill);
+ const rim=new THREE.DirectionalLight(0x00f0aa,.7);rim.position.set(0,-10,18);scene.add(rim);
+ const grid=new THREE.GridHelper(80,40,0x1b354f,0x0d1e2e);grid.position.y=-7;scene.add(grid);
+ raycaster=new THREE.Raycaster();
+ collar=new THREE.Group();station=new THREE.Group();scene.add(collar,station);station.visible=false;
+ buildCollar();buildStation();
+ /* Shed gateway: the ESP-NOW receiver both devices talk to */
+ makeBillboard(scene,["SHED GATEWAY (ESP-NOW)","LOCAL ONLY · NO SIM / CLOUD"],7.4,1.6,10,6,-5);
+ const gw=new THREE.Group();gw.position.set(10,4.1,-5);scene.add(gw);
+ roundedBox(gw,1.55,1.6,.85,.15,0,0,0,material("#293f4c",.4,.5));
+ cylinder(gw,.035,1.2,.5,1.2,0,material("#79c0ff",.3,.4));
+ for(const p of [collar,station]){const r=createStream(p,[[0,2,-2],[3,4,-4],[6,4.4,-5],[10,4.1,-5]],mint,()=>.26,12,.085);r.channel="radio"}
+ createStream(collar,[[0,.18,-11],[-.6,.4,-7],[0,.4,-4],[.5,.4,2],[0,.3,7],[0,.18,11]],"#38bdf8",()=>modes[cur].rs,20,.09);
+ const th=parts.find(p=>p.key==="thermal");
+ heatS=createStream(th.group,[[0,-.4,0],[.4,.6,.25],[-.35,1.65,.1],[.35,2.8,0],[0,4.4,.35]],"#b58236",()=>modes[cur].hs,12,.09);
+ registerParts();
+}
+const markers=[],tmp=new THREE.Vector3(),SVG="http://www.w3.org/2000/svg",ANC={gasket:[4.1,0,0]};
+const PCBSET=["pcb","imu","thermal","gps","charger","battery"];let pcbView=false,tourOn=false,tourT=0,speaking=false,voiceOn=false;
+const colorOf=k=>{const p=parts.find(x=>x.key===k);return P[byId(p.device).indexOf(k)%P.length]};
+function buildMarkers(){
+ const box=el("labels-container");box.replaceChildren();
+ const svg=document.createElementNS(SVG,"svg");box.appendChild(svg);
+ const mk=(o,c)=>{const h=new THREE.BoxHelper(o,c);h.material.depthTest=false;h.material.transparent=true;h.renderOrder=9;h.visible=false;scene.add(h);return h};
+ parts.forEach(p=>{
+  const c=colorOf(p.key);p.box=mk(p.group,c);if(p.key==="pcb")p.ebox=mk(espMesh,c);
+  const a=document.createElement("div");a.className="anc";a.style.setProperty("--pc",c);
+  const l=document.createElement("div");l.className="lab";l.style.setProperty("--pc",c);
+  const i=document.createElement("i"),s=document.createElement("span"),n=document.createElement("b");
+  n.textContent=bom[p.key].id.replace("MG-","");s.append(n,D[p.key].t);l.append(i,s);
+  const ln=document.createElementNS(SVG,"line");ln.style.stroke=c;ln.setAttribute("stroke-width","2");ln.setAttribute("stroke-opacity",".85");svg.appendChild(ln);
+  [a,l].forEach(x=>x.addEventListener("click",ev=>{ev.stopPropagation();select(p.key)}));
+  box.append(a,l);markers.push({a,l,ln,p,vis:false});
+ });
+}
+function updateMarkers(moved){
+ const on=el("toggle-pins").classList.contains("active")&&ex>.3,list=[];
+ markers.forEach(m=>{
+  const p=m.p;let ok=on&&p.device===activeDevice&&visibleInTree(p.group)&&(!pcbView||PCBSET.includes(p.key));
+  if(ok){const o=ANC[p.key]||[0,0,0];tmp.set(o[0],o[1],o[2]);p.group.localToWorld(tmp);tmp.project(camera);
+   ok=tmp.z<1;m.ax=(tmp.x*.5+.5)*innerWidth;m.ay=(-tmp.y*.5+.5)*innerHeight}
+  const lab=ok&&!pcbView,d=lab?"":"none";m.a.style.display=m.l.style.display=m.ln.style.display=d;
+  p.box.visible=ok;if(p.ebox)p.ebox.visible=ok&&pcbView;
+  if(ok&&(moved||!m.vis)){p.box.update();if(p.ebox)p.ebox.update()}
+  m.vis=ok;if(ok){p.box.material.opacity=p===selected?1:.6;if(lab)list.push(m)}
+ });
+ if(!list.length)return;
+ list.sort((p,q)=>p.ay-q.ay);
+ const gap=48,top=100,bot=innerHeight-120,ip=document.querySelector(".inspector-panel");
+ const edge=(ip?ip.getBoundingClientRect().left:innerWidth)-210;
+ const lx=Math.max(360,Math.min(Math.max(...list.map(m=>m.ax))+110,edge));
+ let y=top-gap;list.forEach(m=>{m.ly=Math.max(m.ay,y+gap);y=m.ly});
+ if(y>bot){let nx=bot+gap;for(let i=list.length-1;i>=0;i--){list[i].ly=Math.min(list[i].ly,nx-gap);nx=list[i].ly}}
+ list.forEach(m=>{
+  m.a.style.left=m.ax+"px";m.a.style.top=m.ay+"px";m.l.style.left=lx+"px";m.l.style.top=m.ly+"px";
+  m.ln.setAttribute("x1",m.ax);m.ln.setAttribute("y1",m.ay);m.ln.setAttribute("x2",lx);m.ln.setAttribute("y2",m.ly);
+ });
+}
+
+function updateCallouts(){document.body.classList.toggle("pcb-mode",pcbView&&activeDevice===0&&ex>.2)}
+function buildPills(){
+ const bar=el("layers-pills-bar");bar.replaceChildren();
+ byId(activeDevice).forEach(k=>{
+  const b=document.createElement("button"),i=document.createElement("b"),s=document.createElement("span");
+  b.className="layer-pill";b.id="pill-"+k;b.style.setProperty("--pc",colorOf(k));
+  i.textContent=bom[k].id.replace("MG-","");s.textContent=D[k].t;b.append(i,s);
+  b.addEventListener("click",()=>{if(selected&&selected.key===k)el("part-spec-card").classList.toggle("closed");else select(k)});
+  bar.appendChild(b);
+ });
+}
+function renderArch(){
+ const info=[["Wearable node","1 per cow","Senses jaw motion + skin temperature","Target ₹2,510 per cow (estimate, not final)"],["Milk station node","shared per milking point","Measures milk pH, yield and cow ID","Target ₹2,110 (estimate, not final)"]];
+ el("arch-body").innerHTML=info.map((d,i)=>'<div class="arch-box'+(i===activeDevice?' on':'')+'" style="--c:'+NODE[i].c+'" data-d="'+i+'"><b>'+d[0]+'</b> <em>· '+d[1]+'</em><div>'+d[2]+'</div><div class="chips">'+byId(i).map(k=>'<span>'+bom[k].id.replace("MG-","")+' '+D[k].t+'</span>').join("")+'</div><small>'+d[3]+'</small></div>').join("");
+ document.querySelectorAll(".arch-box").forEach(x=>x.addEventListener("click",()=>{if(+x.dataset.d!==activeDevice)setDevice(+x.dataset.d)}));
+}
+function focus(keys){
+ parts.forEach(p=>p.group.traverse(o=>{
+  if(!o.isMesh||Array.isArray(o.material))return;const m=o.material;
+  if(o.userData.bt===undefined){o.userData.bt=m.transparent;o.userData.bo=m.opacity;o.userData.bd=m.depthWrite}
+  const dim=keys&&!keys.includes(p.key);m.transparent=!!dim||o.userData.bt;m.opacity=dim?.1:o.userData.bo;m.depthWrite=dim?false:o.userData.bd;m.needsUpdate=true;
+ }));
+}
+function select(key,fo){
+ const part=parts.find(p=>p.key===key);if(!part)return;
+ if(part.device!==activeDevice)setDevice(part.device,true);
+ selected=part;const d=D[key],b=bom[key],card=el("part-spec-card");
+ el("disp-part-id").textContent=b.id;el("disp-part-id").style.color=colorOf(key);el("disp-part-title").textContent=d.t;el("disp-part-sub").textContent=NODE[activeDevice].sub;
+ el("disp-fn").textContent=d.fn;el("disp-why").textContent=d.why;el("disp-feat").textContent=d.feat;el("disp-cost").textContent=costTxt(b.cost);
+ document.querySelectorAll(".layer-pill").forEach(x=>x.classList.toggle("active",x.id==="pill-"+key));
+ markers.forEach(m=>m.l.classList.toggle("sel",m.p===part));
+ card.classList.remove("closed","open");void card.offsetWidth;card.classList.add("open");
+ pcbView=!!fo;focus(fo?PCBSET:null);
+}
+function speak(t){
+ speaking=false;if(!("speechSynthesis" in window))return;speechSynthesis.cancel();if(!voiceOn&&!tourOn)return;
+ const u=new SpeechSynthesisUtterance(t);u.lang="en-IN";u.rate=.95;u.onend=u.onerror=()=>{speaking=false};speaking=true;speechSynthesis.speak(u);
+}
+function setStage(i){
+ cur=i;const m=modes[i];document.documentElement.style.setProperty("--stage",m.c);
+ el("sim-title").textContent=m.t;el("sim-score").textContent="Risk "+m.s+"/100";el("sim-score").style.color=m.c;
+ el("sim-bar").style.width=m.s+"%";el("sim-bar").style.background=m.c;el("sim-tel").textContent=m.tel;el("sim-flow").textContent=m.flow;
+ document.querySelectorAll(".stg").forEach(b=>b.classList.toggle("active",+b.dataset.s===i));
+ if(heatS){heatS.coreMat.color.set(m.hc);heatS.beadMat.color.set(m.hc)}
+ tourT=performance.now();speak(m.say);
+}
+function stopTour(){tourOn=false;speaking=false;el("btn-tour").textContent="▶ Run demo";el("tour-bar").style.width="0";if("speechSynthesis" in window)speechSynthesis.cancel()}
+function tourTick(){
+ if(!tourOn)return;const t=performance.now()-tourT,dur=Math.max(9000,modes[cur].say.split(" ").length*430);
+ el("tour-bar").style.width=Math.min(100,t/dur*100)+"%";
+ if(t>dur&&!speaking){if(cur<3)setStage(cur+1);else stopTour()}
+}
+function setEx(v){
+ ex=v;el("explode-pct-label").textContent=Math.round(v*100)+"%";el("explode-slider").value=v*100;
+ el("explode-state-tag").textContent=v>.05?"EXPLODED":"ASSEMBLED";
+}
+function setDevice(i,keep){
+ activeDevice=i;collar.visible=!i;station.visible=!!i;document.body.classList.toggle("station-mode",!!i);
+ el("btn-switch").firstElementChild.textContent="Switch: "+(i?"Wearable Collar":"Milk Station");
+ el("btn-switch").classList.toggle("active",!!i);
+ document.documentElement.style.setProperty("--node",NODE[i].c);
+ const nb=el("node-badge");nb.textContent=NODE[i].n;
+ scene.background.set(i?0x06131c:0x070b12);scene.fog.color.set(i?0x06131c:0x070b12);
+ buildPills();renderArch();
+ if(!keep){pcbView=false;focus(null);select(byId(i)[0]);flyTo([18,14,22],[0,2,0])}
+}
+function flyTo(pos,tgt){
+ new TWEEN.Tween(camera.position).to({x:pos[0],y:pos[1],z:pos[2]},1000).easing(TWEEN.Easing.Cubic.InOut).start();
+ new TWEEN.Tween(controls.target).to({x:tgt[0],y:tgt[1],z:tgt[2]},1000).easing(TWEEN.Easing.Cubic.InOut).start();
+}
+function tweenEx(to,ms){new TWEEN.Tween({p:ex}).to({p:to},ms).easing(TWEEN.Easing.Cubic.InOut).onUpdate(o=>setEx(o.p)).start()}
+function pick(e){
+ const r=renderer.domElement.getBoundingClientRect(),m=new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);
+ raycaster.setFromCamera(m,camera);
+ for(const h of raycaster.intersectObjects(pickable,false)){
+  if(!visibleInTree(h.object))continue;
+  if(xray&&housingMeshes.includes(h.object))continue;
+  select(h.object.userData.part.key);return;
+ }
+}
+function bind(){
+ const on=(id,f)=>el(id).addEventListener("click",f);
+ el("explode-slider").addEventListener("input",e=>setEx(parseFloat(e.target.value)/100));
+ let isEx=false;
+ on("btn-explode-toggle",()=>{isEx=!isEx;el("btn-explode-toggle").textContent=isEx?"Assemble":"Quick Explode";tweenEx(isEx?1:0,900)});
+ on("btn-reset-assembly",()=>{pcbView=false;focus(null);isEx=false;el("btn-explode-toggle").textContent="Quick Explode";tweenEx(0,600);flyTo([17,13,21],[0,1.5,0])});
+ const presets={isoExploded:{p:[18,14,22],t:[0,3,0],x:.85},topView:{p:[0,28,.01],t:[0,0,0],x:0},pcbMacro:{p:[3,11,6],t:[0,1.5,0],x:.5},sideProfile:{p:[26,1.5,0],t:[0,1,0],x:0}};
+ document.querySelectorAll(".cam-btn").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".cam-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");
+  const k=b.dataset.preset,c=presets[k];
+  if(k==="pcbMacro"){if(activeDevice)setDevice(0,true);select("pcb",true);flyTo([0,27,9],[0,1.6,.2]);tweenEx(.6,900);return}
+  pcbView=false;focus(null);flyTo(c.p,c.t);tweenEx(c.x,800);
+ }));
+ on("btn-switch",()=>setDevice(1-activeDevice));
+ on("btn-xray",function(){xray=!xray;this.classList.toggle("active",xray);
+  housingMeshes.forEach(m=>{m.material.transparent=xray;m.material.opacity=xray?.25:1;m.material.depthWrite=!xray;m.material.needsUpdate=true})});
+ on("btn-turntable",function(){this.classList.toggle("active");controls.autoRotate=this.classList.contains("active");controls.autoRotateSpeed=2});
+ on("btn-screenshot",()=>{const l=el("labels-container");l.style.display="none";renderer.render(scene,camera);
+  const a=document.createElement("a");a.download="MastitisGuard_Twin_"+Date.now()+".png";a.href=renderer.domElement.toDataURL("image/png");a.click();l.style.display="block"});
+ ["toggle-pins","toggle-axes","toggle-strap","toggle-screws"].forEach(id=>on(id,function(){this.classList.toggle("active")}));
+ document.querySelectorAll(".stg").forEach(b=>b.addEventListener("click",()=>{stopTour();setStage(+b.dataset.s)}));
+ on("btn-tour",()=>{if(tourOn){stopTour();return}if(activeDevice)setDevice(0);tourOn=true;el("btn-tour").textContent="■ Stop demo";setStage(0)});
+ on("btn-voice",function(){voiceOn=!voiceOn;this.textContent="Voice: "+(voiceOn?"ON":"OFF");if(voiceOn)speak(modes[cur].say);else{speaking=false;speechSynthesis.cancel()}});
+ let down=null;const dom=renderer.domElement;
+ dom.addEventListener("pointerdown",e=>{down=[e.clientX,e.clientY]});
+ dom.addEventListener("pointerup",e=>{if(down&&Math.hypot(e.clientX-down[0],e.clientY-down[1])<5)pick(e);down=null});
+ addEventListener("resize",()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+}
+const clock=new THREE.Clock();let prev=performance.now();
+function animate(now){
+ requestAnimationFrame(animate);
+ const dt=Math.min((now-prev)/1000||.016,.05);prev=now;const t=clock.getElapsedTime(),k=1-Math.exp(-dt*9);
+ TWEEN.update();
+ let moved=false;parts.forEach(p=>{const d=(p.restY+(p.explodedY-p.restY)*ex-p.group.position.y)*k;p.group.position.y+=d;if(Math.abs(d)>1e-4)moved=true});
+ const tg=(id)=>el(id).classList.contains("active");
+ parts.find(p=>p.key==="strap").group.visible=tg("toggle-strap");
+ parts.find(p=>p.key==="screws").group.visible=tg("toggle-screws");
+ axisGroups.forEach(g=>{g.visible=tg("toggle-axes")&&ex>.05});
+ streams.forEach(s=>{if(!visibleInTree(s.parent))return;const v=s.speedFn(),L=s.lut;s.particles.forEach((b,i)=>{const u=((t*v+i/s.count)%1)*256,j=u|0,f=u-j,A=L[j],B=L[j+1];b.position.set(A.x+(B.x-A.x)*f,A.y+(B.y-A.y)*f,A.z+(B.z-A.z)*f)})});
+ 
+ controls.update();updateMarkers(moved);updateCallouts();tourTick();renderer.render(scene,camera);
+}
+addEventListener("DOMContentLoaded",()=>{
+ try{buildScene();bind();buildMarkers();setDevice(0,true);select("lid");setStage(0);requestAnimationFrame(animate)}
+ catch(err){const l=el("loader");l.textContent="Could not start the 3D twin: "+err.message;return}
+ setTimeout(()=>{const l=el("loader");l.style.opacity="0";setTimeout(()=>l.style.display="none",400)},500);
+});
+})();
+
+</script>
 </body>
 </html>
