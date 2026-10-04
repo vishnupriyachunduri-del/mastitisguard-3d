@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: mastitisguard-3d-digital-twin
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

@@ -1,0 +1,19 @@
+{
+  "name": "mastitisguard-3d-digital-twin",
+  "version": "1.0.0",
+  "description": "Interactive 3D Engineering Digital Twin of the MastitisGuard AI Animal Wearable (Team SPIRIT / H14_SPIRIT) ready for 1-click deployment on Render.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "threejs",
+    "webgl",
+    "digital-twin",
+    "mastitisguard",
+    "render-deployment",
+    "iot-wearable"
+  ],
+  "author": "Team SPIRIT (H14_SPIRIT)",
+  "license": "MIT"
+}
